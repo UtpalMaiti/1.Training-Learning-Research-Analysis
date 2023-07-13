@@ -1,0 +1,110 @@
+﻿@using HelperMethodsDemonstration_1.Models
+
+@model Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @Html.AntiForgeryToken()
+        <h2>Country List...</h2>
+        @CustomHelpers.DisplayList(ViewBag.countryList)
+
+        <h2>Department List...</h2>
+        @CustomHelpers.DisplayList(ViewBag.departmentList)
+
+        @* Extension Method is Calling *@
+        <h2>Department List...</h2>
+        @Html.DisplayList_New(ViewBag.departmentList as List<string>)
+
+        <h2>Understanding the Concept of Helper Methods...</h2>
+        @using (Html.BeginForm())
+        {
+            <p>
+                <label>
+                    Gender : @Html.DropDownList("Gender",
+new SelectList(new string[] { "Male", "Female" }), "---Select---")
+                </label>
+            </p>
+            <p>
+                <label>
+                    Country : @Html.DropDownList("Country",
+new SelectList(ViewBag.countryList), "---Select---")
+                </label>
+            </p>
+            <p>
+                <label>
+                    Department : @Html.DropDownList("Department",
+new SelectList(ViewBag.deptList, "Id", "Name"), "---Select---")
+                </label>
+            </p>
+            <p>
+                <label>
+                    Location : @Html.DropDownListFor(e => e.Location,
+new SelectList(ViewBag.countryList), "---Select---")
+                </label>
+            </p>
+            <p>
+                <label>
+                    Role : @Html.DropDownList("Role",
+new SelectList(Enum.GetNames(typeof(Role))), "---Select---")
+                </label>
+            </p>
+
+            <label>
+                Role : @Html.EnumDropDownListFor(r => r.Role, "---Select---")
+            </label>
+            @Html.EditorForModel()
+
+            <p>
+                <label>Employee ID : <input type="text" name="Id" /></label>
+            </p>
+            <p>
+                <label>Employee Name : @Html.TextBox("Name")</label>
+            </p>
+            <p>
+                <label>Employee Location : @Html.TextBoxFor(e => e.Location) </label>
+            </p>
+            <p>
+                <label>
+                    Employee Salary : @Html.EditorFor(e => e.Salary)
+                </label>
+            </p>
+            <p>
+                <label>
+                    Employee Qualification : @Html.EditorFor(e => e.Qualification)
+                </label>
+            </p>
+            <p>
+                <label>
+                    Employee Email ID : @Html.EditorFor(e => e.EmailId)
+                </label>
+            </p>
+            <p>
+                <label>
+                    Employee Date Of Joining : @Html.EditorFor(e => e.DOJ)
+                </label>
+            </p>
+            <p>
+                <label>
+                    @Html.EditorFor(e => e.IsPermanent) : Is Permanent
+                </label>
+            </p>
+            <h2>Current Address</h2>
+            @Html.EditorFor(e => e.CurrentAddress)
+            <h2>Permanent Address</h2>
+            @Html.EditorFor(e => e.PermanentAddress)
+            <button>Create</button>
+        }
+    </div>
+</body>
+</html>

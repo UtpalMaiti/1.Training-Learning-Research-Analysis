@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script>
+		$(document).ready(function () {
+			$.ajax({
+				type: 'GET',
+				url: 'http://localhost:9971/api/EmployeeApi',
+				success: function (r) {
+					$.each(r, function (i, emp) {
+						$("#empData").append('<tr><td>' + emp.Id + '</td><td>' + emp.Name +
+							'</td><td>' + emp.Location + '</td><td>' + emp.Salary + '</td></tr>');
+					});
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<h2>Understading the Concepts of Web API...</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Location</th>
+				<th>Salary</th>
+			</tr>
+		</thead>
+		<tbody id="empData"></tbody>
+	</table>
+</body>
+</html>

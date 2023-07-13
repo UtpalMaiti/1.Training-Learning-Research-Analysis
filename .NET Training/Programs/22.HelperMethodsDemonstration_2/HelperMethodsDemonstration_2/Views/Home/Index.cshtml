@@ -1,0 +1,90 @@
+﻿@using HelperMethodsDemonstration_2.Models
+
+@model string
+
+@{
+    Layout = null;
+
+    //Ajax calling in MVC Cshtml
+    AjaxOptions opts = new AjaxOptions
+    {
+        //Url = "/Home/LoadEmployees",
+        Url = Url.Action("LoadEmployees"),
+        UpdateTargetId = "empDataBody",
+        Confirm = "Are you Sure to Send the Request?",
+        LoadingElementId = "loadingDiv",
+        OnBegin = "onBegin",
+        OnSuccess = "onSuccess",
+        OnComplete = "onComplete",
+        //AllowCache
+        //HttpMethod,
+        //InsertionMode,
+        //LoadingElementDuration,
+        //OnFailure
+        //AllowCache = true
+
+    };
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-1.8.0.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script>
+        function onBegin() {
+            alert("Sending the Request to the Server is about to start");
+        }
+
+        function onSuccess(resp) {
+            alert("We are in OnSuccess Function");
+            alert(resp);
+        }
+
+        function onComplete(e, r) {
+            alert("We are in OnComplete Function");
+            alert(e);
+            alert(r);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div style="display:none" id="loadingDiv">
+            Loading in Progress...
+        </div>
+        <h2>Employee List...</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Salary</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody id="empDataBody">
+                @Html.Action("LoadEmployees", new { Role = Model })
+            </tbody>
+        </table>
+        @using (Ajax.BeginForm(opts))
+        {
+            <p>
+                <label>
+                    Role : @Html.DropDownList("Role", new SelectList(
+new string[] { "All" }.Concat(Enum.GetNames(typeof(Role)))))
+                </label>
+                <button>Apply</button>
+            </p>
+        }
+
+        <p>
+            <label>Enter UserName : <input type="text" name="UserName" /></label>
+        </p>
+    </div>
+</body>
+</html>

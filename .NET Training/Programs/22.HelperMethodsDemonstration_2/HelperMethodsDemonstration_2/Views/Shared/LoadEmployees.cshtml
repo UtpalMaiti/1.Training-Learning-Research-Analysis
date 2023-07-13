@@ -1,0 +1,14 @@
+﻿@using HelperMethodsDemonstration_2.Models
+
+@model List<Employee>
+
+@foreach (var emp in Model)
+{
+    <tr>
+        <td>@emp.Id</td>
+        <td>@emp.Name</td>
+        <td>@emp.Location</td>
+        <td>@emp.Salary</td>
+        <td>@emp.Role</td>
+    </tr>
+}

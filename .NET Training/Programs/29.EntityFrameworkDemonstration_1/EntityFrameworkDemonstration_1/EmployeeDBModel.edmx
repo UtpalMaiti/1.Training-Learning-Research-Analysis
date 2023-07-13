@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EmployeeDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DeptInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EmpInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salary" Type="int" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoginInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_EmpInfo_EmpInfo">
+          <End Role="EmpInfo" Type="Self.EmpInfo" Multiplicity="1" />
+          <End Role="EmpInfo1" Type="Self.EmpInfo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EmpInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpInfo1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmployeeDBModelStoreContainer">
+          <EntitySet Name="DeptInfo" EntityType="Self.DeptInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmpInfo" EntityType="Self.EmpInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginInfo" EntityType="Self.LoginInfo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_EmpInfo_EmpInfo" Association="Self.FK_EmpInfo_EmpInfo">
+            <End Role="EmpInfo" EntitySet="EmpInfo" />
+            <End Role="EmpInfo1" EntitySet="EmpInfo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EmployeeDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DeptInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EmpInfoes" Relationship="Self.FK_EmpInfo_DeptInfo" FromRole="DeptInfo" ToRole="EmpInfo" />
+        </EntityType>
+        <EntityType Name="EmpInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="Int32" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DeptInfo" Relationship="Self.FK_EmpInfo_DeptInfo" FromRole="EmpInfo" ToRole="DeptInfo" />
+          <NavigationProperty Name="EmpInfo1" Relationship="EmployeeDBModel.FK_EmpInfo_EmpInfo" FromRole="EmpInfo" ToRole="EmpInfo1" />
+          <NavigationProperty Name="EmpInfo2" Relationship="EmployeeDBModel.FK_EmpInfo_EmpInfo" FromRole="EmpInfo1" ToRole="EmpInfo" />
+        </EntityType>
+        <Association Name="FK_EmpInfo_DeptInfo">
+          <End Role="DeptInfo" Type="Self.DeptInfo" Multiplicity="1" />
+          <End Role="EmpInfo" Type="Self.EmpInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeptInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpInfo">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmployeeDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DeptInfoes" EntityType="Self.DeptInfo" />
+          <EntitySet Name="EmpInfoes" EntityType="Self.EmpInfo" />
+          <AssociationSet Name="FK_EmpInfo_DeptInfo" Association="Self.FK_EmpInfo_DeptInfo">
+            <End Role="DeptInfo" EntitySet="DeptInfoes" />
+            <End Role="EmpInfo" EntitySet="EmpInfoes" />
+          </AssociationSet>
+          <EntitySet Name="LoginInfoes" EntityType="EmployeeDBModel.LoginInfo" />
+          <AssociationSet Name="FK_EmpInfo_EmpInfo" Association="EmployeeDBModel.FK_EmpInfo_EmpInfo">
+            <End Role="EmpInfo" EntitySet="EmpInfoes" />
+            <End Role="EmpInfo1" EntitySet="EmpInfoes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="LoginInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_EmpInfo_EmpInfo">
+          <End Type="EmployeeDBModel.EmpInfo" Role="EmpInfo" Multiplicity="1" />
+          <End Type="EmployeeDBModel.EmpInfo" Role="EmpInfo1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EmpInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpInfo1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EmployeeDBModelStoreContainer" CdmEntityContainer="EmployeeDBEntities">
+          <EntitySetMapping Name="DeptInfoes">
+            <EntityTypeMapping TypeName="EmployeeDBModel.DeptInfo">
+              <MappingFragment StoreEntitySet="DeptInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpInfoes">
+            <EntityTypeMapping TypeName="EmployeeDBModel.EmpInfo">
+              <MappingFragment StoreEntitySet="EmpInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginInfoes">
+            <EntityTypeMapping TypeName="EmployeeDBModel.LoginInfo">
+              <MappingFragment StoreEntitySet="LoginInfo">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="04ff0a0e33b9458cb39abbe4a1355e00" Name="Diagram1">
+        <EntityTypeShape EntityType="EmployeeDBModel.DeptInfo" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeDBModel.EmpInfo" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="EmployeeDBModel.FK_EmpInfo_DeptInfo" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EmployeeDBModel.LoginInfo" Width="1.5" PointX="0.75" PointY="4.75" />
+        <AssociationConnector Association="EmployeeDBModel.FK_EmpInfo_EmpInfo" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

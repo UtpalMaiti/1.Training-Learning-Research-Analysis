@@ -1,0 +1,25 @@
+﻿@model HelperMethodsDemonstration_1.Models.Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowDetails</title>
+</head>
+<body>
+    <div> 
+        <h2>Employee Details...</h2>
+        @Html.EditorForModel()
+        <p></p>
+        @Html.DisplayForModel()
+        <p>
+            @CustomHelpers.DisplayList(ViewBag.TestList)
+        </p>
+    </div>
+</body>
+</html>

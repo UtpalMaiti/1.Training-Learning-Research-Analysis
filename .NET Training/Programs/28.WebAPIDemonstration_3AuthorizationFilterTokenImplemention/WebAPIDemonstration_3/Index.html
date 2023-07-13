@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#btnGetBalance").click(function () {
+
+                alert(btoa($("#tbUName").val() + ':' + $("#tbPwd").val()));
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/TestApi',
+                    headers: { 'Authorization': 'Basic ' + btoa($("#tbUName").val() + ':' + $("#tbPwd").val()) },
+                    success: function (output) {
+                        alert(output);
+                    },
+                    error: function (er) {
+                        alert(JSON.stringify(er));
+                    }
+                });
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <h2>Understanding Web API...</h2>
+    <p>
+        <label>UserName : <input type="text" id="tbUName" /></label>
+    </p>
+    <p>
+        <label>PassWord : <input type="text" id="tbPwd" /></label>
+    </p>
+    <button id="btnGetBalance">Get Balance</button>
+</body>
+</html>
