@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "pluralsightDemoSecret": {
+      "reference": {         
+        "secretName": "Secret",
+        "keyVault": { "id": "/subscriptions/979324e5-17ea-450e-bed2-26d05ec4d43e/resourceGroups/pluralsightkeyvaultdemo/providers/Microsoft.KeyVault/vaults/pluralsightkeyvaultdemo" }
+      }
+    },
+    "hostingPlanName": {
+      "value": "PluralsightDemoApplicationPlan"
+    },
+    "skuName": {
+      "value": "B2"
+    },
+    "skuCapacity": {
+      "value": 2
+    }
+  }
+}

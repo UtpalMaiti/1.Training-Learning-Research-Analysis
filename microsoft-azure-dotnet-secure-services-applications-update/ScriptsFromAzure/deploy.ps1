@@ -1,0 +1,2 @@
+New-AzResourceGroup -Name "pluralsightapi2resourcegroup" -Location "West Europe" -Verbose -Force
+New-AzResourceGroupDeployment -ResourceGroupName "pluralsightapi2resourcegroup" -TemplateFile "template.json" -TemplateParameterFile "parameters.json"
