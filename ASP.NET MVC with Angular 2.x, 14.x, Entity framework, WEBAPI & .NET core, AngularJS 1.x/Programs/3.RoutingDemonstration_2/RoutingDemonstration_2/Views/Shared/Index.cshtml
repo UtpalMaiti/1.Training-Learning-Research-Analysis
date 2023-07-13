@@ -1,0 +1,92 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        .testClass {
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+        @{
+            Html.BeginForm("EditEmployee", "Home");
+
+            <label>UserName<input type="text" name="username" /></label>
+            <label>Password<input type="text" name="password" /></label>
+
+            Html.EndForm();
+        }
+
+        @using (Html.BeginForm("editEmployee", "Home", new { Id = 222 }))
+        {
+            <label>UserName<input type="text" name="username" /></label>
+            <label>Password<input type="text" name="password" /></label>
+        }
+
+        @using (Html.BeginRouteForm("Default", new { controller = "Home", action = "LogIn" }))
+        {
+
+        }
+
+        <h2>Understanding the Concept of Routing...</h2>
+        <p>
+            @Url.Action("Order", "CreateOrder")
+        </p>
+        <p>
+            @Url.Action("Order", "CreateOrder", new { id = 111 })
+        </p>
+        <p>
+            @Url.RouteUrl("Admin", new { controller = "Order", action = "CreateOrder" })
+        </p>
+        <p>
+            @Html.RouteLink("Create Order", "Default",
+           new { controller = "Order", action = "CreateOrder" })
+        </p>
+        <p>
+            @Html.RouteLink("Create Order", "Admin",
+           new { controller = "Employee", action = "CreateOrder" })
+        </p>
+        <p>
+            <a href="/Home/EditEmployee/101" id="demoId">Edit</a>
+        </p>
+        <p>
+            <a href="/Home/DeleteEmployee/101">Delete</a>
+        </p>
+        <p>
+            @Html.ActionLink("Create New", "CreateEmployee")
+        </p>
+        <p>
+            @Html.ActionLink("Edit", "EditEmployee", new { id = 105 })
+        </p>
+        <p>
+            @Html.ActionLink("Edit", "EditEmployee", new { id = 105, Name = "Pragim" })
+        </p>
+        <p>
+            @Html.ActionLink("Create Order", "CreateOrder", "Order")
+        </p>
+        <p>
+            @Html.ActionLink("Modify Order", "EditOrder",
+           new { id = 1111, controller = "Order" },
+           new
+           {
+               id = "testId",
+                    @class = "testClass"
+           })
+        </p>
+        <p>
+            @Html.ActionLink("Modify Order", "EditOrder", "Order", "https", "www.PragimTech.com",
+           null, new { id = 123 }, null)
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2>Understanding the Concept of Views...</h2>
+        @using (Html.BeginForm())
+        {
+            <h2>Create Employee...</h2>
+            <p>
+                <label>ID : <input type="text" name="Id" /></label>
+            </p>
+            <p>
+                <label>Name : <input type="text" name="Name" /></label>
+            </p>
+            <p>
+                <label>Location : <input type="text" name="Location" /></label>
+            </p>
+            <p>
+                <label>Salary : <input type="text" name="Salary" /></label>
+            </p>
+            <button>Create</button>
+            <button>Cancel</button>
+        }
+        @using (Html.BeginForm("EditEmployee", "Home"))
+        {
+            <p>
+                <label>Enter Employee ID : <input type="text" name="Id" /></label>
+            </p>
+            <p>
+                <label>Enter Employee ID 1 : <input type="text" name="Id" /></label>
+            </p>
+            <button>Edit</button>
+            <button formaction="@Url.Action("DeleteEmployee")">Delete</button>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+34.EntityFrameworkDemonstration_6
+
+Concurrency:
+1.Optimistic,=> Row Version ,It will verify the value if it is same then it will Update;
+
+Use field type in db as timestamp or rownumber
+2.Prestimestic => isLocked Method
+

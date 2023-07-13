@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateOrder</title>
+</head>
+<body>
+    <div> 
+        <h2>Welcome to Create Order View...</h2>
+        <p>
+            <label>UserName : <b>@TempData.Peek("uName")</b></label>
+        </p>
+        <p>
+            <label>Password : <b>@TempData["pwd"]</b></label>
+        </p>
+        <p>
+            @Html.ActionLink("Edit Profile", "EditProfile")
+        </p>
+        @{ 
+            TempData.Keep();
+        }
+    </div>
+</body>
+</html>

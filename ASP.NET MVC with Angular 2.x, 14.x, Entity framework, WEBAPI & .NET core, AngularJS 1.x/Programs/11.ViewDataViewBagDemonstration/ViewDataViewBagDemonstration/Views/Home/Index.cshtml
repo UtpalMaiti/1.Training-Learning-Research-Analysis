@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h2>Understanding the Concept Of ViewData...</h2>
+        <p>
+            <label>UserName : <b>@ViewBag.userName</b></label>
+        </p>
+        <h2>Location's List...</h2>
+        <ul>
+            @foreach(var l in ViewBag.locationList)
+            {
+                <li>@l</li>
+            }
+        </ul>
+        <p>
+            <label>UserName : <b>@ViewData["userName"]</b></label>
+        </p>
+        <h2>Location's List...</h2>
+        <ul>
+            @foreach (var l in ViewData["locationList"] as List<string>)
+            {
+                <li>@l</li>
+            }
+        </ul>
+        <p>
+            @Html.ActionLink("Edit Profile","EditProfile")
+        </p>
+    </div>
+</body>
+</html>

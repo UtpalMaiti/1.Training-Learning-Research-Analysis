@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditProfile</title>
+</head>
+<body>
+    <div> 
+        <h2>Welcome to Edit Profile View...</h2>
+        <p>
+            <label>UserName : <b>@Session["uName"]</b></label>
+        </p>
+        <p>
+            <label>PassWord : <b>@Session["pwd"]</b></label>
+        </p>
+        <p>
+            @Html.ActionLink("Change PassWord", "ChangePassword")
+        </p>
+    </div>
+</body>
+</html>

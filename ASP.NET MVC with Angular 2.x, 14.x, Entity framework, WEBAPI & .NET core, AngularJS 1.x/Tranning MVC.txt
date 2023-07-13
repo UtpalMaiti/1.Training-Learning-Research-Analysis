@@ -1,0 +1,34 @@
+31/05/2019
+C# - Reflection
+isslamdam
+dll and exe file
+
+ctrl+m to view metadata
+
+not able to herev
+Is there any command to view ILDASM
+
+developer tool>>  type  ILDASM
+
+
+03/06/2019
+		
+.ASPX(ASPX Engine)
+.CSHTML(Razor Engine)
+
+
+UI Development with AngularJS and Angular 2/4
+
+Webex recorder
+atrecply.msi
+https://download.informer.com/win-1191524386-737abfcd-6a9e2b38/atrecply.msi
+
+
+
+
+
+
+
+
+
+

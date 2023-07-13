@@ -1,0 +1,46 @@
+﻿@model List<TempDataDemonstration.Models.Employee>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h2>Understanding the Concept of TempData...</h2>
+        <p style="font-weight:bold">
+            @TempData["message"]
+        </p>
+        <p>
+            @Html.ActionLink("Create New Employee","CreateEmployee")
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var emp in Model)
+                {
+                    <tr>
+                        <td>@emp.Id</td>
+                        <td>@emp.Name</td>
+                        <td>@emp.Location</td>
+                        <td>@emp.Salary</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
