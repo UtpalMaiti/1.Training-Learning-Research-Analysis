@@ -18,14 +18,28 @@
 
 1. aspnet-core-fundamentals
 2. microsoft-azure-dotnet-secure-services-applications-update
+3. ASP.NET Core Identity Authentication Management_LinkedIn
+4. aspnetcore-azure-tables-2841537_LinkedIn
 
 # Angular
 
 1. PluralSight-Angular-Fundamentals
+2. angular-essential-training_LinkedIn
+3. Angular_Progressive_Web_Apps_LinkedIn
 
+# .NET CORE WITH Angular
+
+1. Angular API Communication and Authentication_LinkedIn
 
 # SampleProjects
 https://github.com/UtpalMaiti/SampleProjects
+
+# DevOps and Cloud Technologies
+https://github.com/gkdevops/gkdevops
+
+# Useful Resource
+https://dotnettutorials.net/course/csharp-dot-net-tutorials/
+https://github.com/orgs/LinkedInLearning/repositories
 
     
 
