@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html ng-app="testApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/testAppScripts.js"></script>
+</head>
+<body ng-controller="demoController">
+    <h2>Understanding Directives...</h2>
+    <test-directive link-url="http://www.google.com" link-text="Google"></test-directive>
+    <p test-directive link-url="http://www.gmail.com" link-text="Gmail">Hi...</p>
+    <label class="test-directive" link-url="http://www.twitter.com" link-text="Twitter"></label>
+    <p></p>
+    <login-directive-new></login-directive-new>
+</body>
+</html>
