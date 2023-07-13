@@ -38,8 +38,8 @@ https://github.com/UtpalMaiti/SampleProjects
 https://github.com/gkdevops/gkdevops
 
 # Useful Resource
-https://dotnettutorials.net/course/csharp-dot-net-tutorials/
-https://github.com/orgs/LinkedInLearning/repositories
+1. https://dotnettutorials.net/course/csharp-dot-net-tutorials/
+2. https://github.com/orgs/LinkedInLearning/repositories
 
     
 
