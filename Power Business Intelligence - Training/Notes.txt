@@ -1,0 +1,3 @@
+FOR PBI Server =>Microsoft Power BI Desktop (Optimized for Power BI Report Server - September 2019)
+
+Leatest version PBI desktop does not support PBI server.

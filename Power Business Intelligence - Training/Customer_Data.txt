@@ -1,0 +1,13 @@
+CustormerID,CustName,ProductName,Price,Purchased_Date
+1,Krishna,Samsung Washing Machine,10000.00,1/1/2016
+2,Mohan,Dell Laptop,35000.00,1/2/2016
+3,Suresh,Sony LED TV,45000.00,2/1/2016
+4,Krishna,Samsung Washing Machine,10000.00,2/2/2016
+5,Mohan,Dell Laptop,35000.00,3/1/2016
+6,Suresh,Sony LED TV,45000.00,3/2/2016
+7,Krishna,Samsung Washing Machine,10000.00,1/1/2017
+8,Mohan,Dell Laptop,35000.00,1/2/2017
+9,Suresh,Sony LED TV,45000.00,2/1/2017
+10,Krishna,Samsung Washing Machine,10000.00,2/2/2017
+20,Mohan,Dell Laptop,35000.00,2/3/2018
+30,Suresh,Sony LED TV,45000.00,2/4/2018

@@ -1,0 +1,30 @@
+﻿<tbl_emp_3nfa>
+  <row>
+    <empid>1</empid>
+    <empname>Mohan</empname>
+    <mobile_number>34534543534</mobile_number>
+    <Salary>5000</Salary>
+    <dept_name>Sales dept</dept_name>
+  </row>
+  <row>
+    <empid>2</empid>
+    <empname>Ashok</empname>
+    <mobile_number>34534</mobile_number>
+    <Salary>4000</Salary>
+    <dept_name>Sales dept</dept_name>
+  </row>
+  <row>
+    <empid>3</empid>
+    <empname>Balu</empname>
+    <mobile_number>45674657</mobile_number>
+    <Salary>3000</Salary>
+    <dept_name>Sales dept</dept_name>
+  </row>
+  <row>
+    <empid>4</empid>
+    <empname>Charan</empname>
+    <mobile_number>67897689</mobile_number>
+    <Salary>6000</Salary>
+    <dept_name>Sales dept</dept_name>
+  </row>
+</tbl_emp_3nfa>

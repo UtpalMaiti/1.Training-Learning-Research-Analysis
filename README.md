@@ -2,6 +2,7 @@
 1. .NET Training - ASP.NET MVC with Angular 2.x, 14.x, Entity framework, WEBAPI & .NET core, AngularJS 1.x
 2. Complete-AngularJS
 3. Complete-jQuery
+4. Power Business Intelligence - Training
 
 # ALL-MIX
 1. Entity-Framework-in-Depth-The-Complete-Guide-
