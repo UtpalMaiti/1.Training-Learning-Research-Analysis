@@ -3,6 +3,9 @@
 2. Complete-AngularJS
 3. Complete-jQuery
 
+# ALL-MIX
+1. Entity-Framework-in-Depth-The-Complete-Guide-
+
 # Azure
 
 1. microsoft-azure-blob-storage-implementing
