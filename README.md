@@ -3,6 +3,7 @@
 2. Complete-AngularJS
 3. Complete-jQuery
 4. Power Business Intelligence - Training
+5. Microsoft Business Intelligence – MSBI  
 
 # ALL-MIX
 1. Entity-Framework-in-Depth-The-Complete-Guide-
