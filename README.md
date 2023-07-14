@@ -7,6 +7,7 @@
 
 # ALL-MIX
 1. Entity-Framework-in-Depth-The-Complete-Guide-
+2. Competitive Programming
 
 # Azure
 
