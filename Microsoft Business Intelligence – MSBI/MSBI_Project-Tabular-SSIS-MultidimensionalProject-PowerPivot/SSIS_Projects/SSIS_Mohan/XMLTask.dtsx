@@ -1,0 +1,410 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/16/2020 8:14:54 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-7GERK1S"
+  DTS:CreatorName="DESKTOP-7GERK1S\Admin"
+  DTS:DTSID="{D3FFDAF0-90E6-4A38-BA43-3E11DC682EF1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.71"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="XMLTask"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{16626134-13CF-44D4-A9ED-D570D7A564A6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Diff_Result.txt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{5C81354C-DDCC-45EC-B25E-639B7FD754A8}"
+      DTS:ObjectName="Diff_Result.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="E:\SSIS_Mohan_Files\Diff_Result.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Diff_XML_OP.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{1A76195B-A3F0-4C4D-8B27-E43E97551C40}"
+      DTS:ObjectName="Diff_XML_OP.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="E:\SSIS_Mohan_Files\Diff_XML_OP.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[First_File.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{A13236F9-BE13-4C6A-B299-E38AD0099D50}"
+      DTS:ObjectName="First_File.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Admin\Downloads\First_File.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Merge.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{280DB225-C921-48F8-AE51-6F8B24A18570}"
+      DTS:ObjectName="Merge.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Admin\Downloads\Merge.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[merge1.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{8A977D16-EF2E-4191-BF60-14360F306804}"
+      DTS:ObjectName="merge1.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Admin\Downloads\merge1.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Merge2.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{D2525D5E-C950-4EAB-A46D-0869809C55CF}"
+      DTS:ObjectName="Merge2.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Admin\Downloads\Merge2.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Merge_op.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{C12E8982-206D-41BF-B7EE-E4A522DD92B0}"
+      DTS:ObjectName="Merge_op.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="E:\XML_Outputs\Merge_op.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Merge_op.xml 1]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{01337DAF-7B01-4A71-9356-C17A138E2A6D}"
+      DTS:ObjectName="Merge_op.xml 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="E:\XML_Outputs\Merge_op.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Merge_Title_op.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{A3CF72BB-359E-4922-B606-F6D869B9131E}"
+      DTS:ObjectName="Merge_Title_op.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="E:\XML_Outputs\Merge_Title_op.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Patch_op.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{856208C1-21C8-490E-A217-1208254AF4E8}"
+      DTS:ObjectName="Patch_op.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="E:\SSIS_Mohan_Files\Patch_op.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[second_File.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{724E93C9-6339-45B3-8D39-D6B42BD15A6B}"
+      DTS:ObjectName="second_File.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Admin\Downloads\second_File.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Title.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{A3CEFB54-04E9-4A7E-B68D-1AC8066592F0}"
+      DTS:ObjectName="Title.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Admin\Downloads\Title.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[xpath_author.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{27C0CE59-A493-4569-9B52-EFB01F13BFCF}"
+      DTS:ObjectName="xpath_author.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="E:\XML_Outputs\xpath_author.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[XSLTInput_New.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{74ADB08B-AA42-4EBF-BBFA-56C6178C7580}"
+      DTS:ObjectName="XSLTInput_New.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Admin\Downloads\XSLTInput_New.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[xsltStylesheet.txt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{3B2A3B51-607B-4207-8320-5080ECDE87A7}"
+      DTS:ObjectName="xsltStylesheet.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Admin\Downloads\xsltStylesheet.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[XSLT_OP.txt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{9AB41D55-41E8-4E0C-B91A-783D9496AF7E}"
+      DTS:ObjectName="XSLT_OP.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="E:\XML_Outputs\XSLT_OP.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DIFF XML Task"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{41397A56-A6EC-4A01-BB23-8E7DDCEB07F5}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIFF XML Task"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          Source="First_File.xml"
+          SecondOperandType="FileConnection"
+          SecondOperand="second_File.xml"
+          SaveOperationResult="True"
+          Destination="Diff_Result.txt"
+          OverwriteDestination="True"
+          SaveDiffGram="True"
+          DiffGramDestination="Diff_XML_OP.xml" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\MERGE XML Task"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{B2625334-5518-4FB9-9F25-F5F4678C8D43}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="MERGE XML Task"
+      DTS:ThreadHint="4">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="Merge"
+          Source="merge1.xml"
+          SecondOperandType="FileConnection"
+          SecondOperand="Merge2.xml"
+          SaveOperationResult="True"
+          Destination="Merge_op.xml"
+          OverwriteDestination="True"
+          XPathStringSource="//catalog" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PATCH XML Task"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{F0EB9833-CE20-47D6-9350-17226DF1DA3D}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PATCH XML Task"
+      DTS:ThreadHint="5">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="Patch"
+          Source="First_File.xml"
+          SecondOperandType="FileConnection"
+          SecondOperand="Diff_XML_OP.xml"
+          SaveOperationResult="True"
+          Destination="Patch_op.xml"
+          OverwriteDestination="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\XML Task"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{EFF590B7-0439-4246-9259-4B3FC538E3F6}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="XML Task"
+      DTS:ThreadHint="6">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="Merge"
+          Source="Merge.xml"
+          SecondOperandType="FileConnection"
+          SecondOperand="Title.xml"
+          SaveOperationResult="True"
+          Destination="Merge_Title_op.xml"
+          OverwriteDestination="True"
+          XPathStringSource="//catalog/book[2]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\XML Task 1"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{2ea8187c-268e-425b-bf8b-892affbdb6aa}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="XML Task 1"
+      DTS:ThreadHint="7">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="Merge"
+          Source="Merge.xml"
+          SecondOperandType="FileConnection"
+          SecondOperand="Title.xml"
+          SaveOperationResult="True"
+          Destination="Merge_Title_op.xml"
+          OverwriteDestination="True"
+          XPathStringSource="//catalog/book[@id =&quot;bk102&quot;]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\XML Task 2"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{B488797E-D09A-4C9A-AB5B-BC852A2E5C88}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="XML Task 2"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="XSLT"
+          Source="XSLTInput_New.xml"
+          SecondOperandType="FileConnection"
+          SecondOperand="xsltStylesheet.txt"
+          SaveOperationResult="True"
+          Destination="XSLT_OP.txt"
+          OverwriteDestination="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\XPATH XML Task 2"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{2A80C641-F5A8-450D-9B9F-E310D4CB9BA5}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="XPATH XML Task 2"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="XPATH"
+          Source="Merge_op.xml 1"
+          SecondOperand="//catalog/book[1]/author"
+          SaveOperationResult="True"
+          Destination="xpath_author.xml"
+          OverwriteDestination="True"
+          XPathOperation="NodeList" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\XPATH XML Task 2 1"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{a2486fad-3082-4bb8-9509-0c86bd6fcdae}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="XPATH XML Task 2 1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="XPATH"
+          Source="Merge_op.xml 1"
+          SecondOperand="//catalog/book/author"
+          SaveOperationResult="True"
+          Destination="xpath_author.xml"
+          OverwriteDestination="True"
+          XPathOperation="NodeList" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\DIFF XML Task"
+          TopLeft="438,120" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\MERGE XML Task"
+          TopLeft="444,305" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\PATCH XML Task"
+          TopLeft="447,207" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\XML Task"
+          TopLeft="246,160" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\XML Task 1"
+          TopLeft="229,254" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\XML Task 2"
+          TopLeft="277,31" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\XPATH XML Task 2"
+          TopLeft="689,106" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\XPATH XML Task 2 1"
+          TopLeft="701,231" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

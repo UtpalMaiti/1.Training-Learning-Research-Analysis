@@ -1,0 +1,137 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/23/2020 8:51:19 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-7GERK1S"
+  DTS:CreatorName="DESKTOP-7GERK1S\Admin"
+  DTS:DTSID="{FFECF92A-B914-49B7-B852-D7F54501F41C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.71"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DB_Transfer"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{07D068F6-A3E1-4C79-A4DA-D0BF0341CAD2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-7GERK1S]"
+      DTS:CreationName="SMOServer"
+      DTS:DTSID="{6DAE4A78-E9AE-4092-95A5-90508DB8D566}"
+      DTS:ObjectName="DESKTOP-7GERK1S">
+      <DTS:ObjectData>
+        <SMOServerConnectionManager
+          ConnectionString="SqlServerName=DESKTOP-7GERK1S;UseWindowsAuthentication=True;UserName=;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-7GERK1S\MSSQLSERVER01]"
+      DTS:CreationName="SMOServer"
+      DTS:DTSID="{36C90736-8D67-4DD7-81EA-06AE560CC127}"
+      DTS:ObjectName="DESKTOP-7GERK1S\MSSQLSERVER01">
+      <DTS:ObjectData>
+        <SMOServerConnectionManager
+          ConnectionString="SqlServerName=DESKTOP-7GERK1S\MSSQLSERVER01;UseWindowsAuthentication=True;UserName=;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Transfer Database Task"
+      DTS:CreationName="Microsoft.TransferDatabaseTask"
+      DTS:Description="Transfer Database Task"
+      DTS:DTSID="{7CC1AFEA-95B8-4039-8ECB-95EF286B64C1}"
+      DTS:ExecutableType="Microsoft.TransferDatabaseTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer Database Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <TransferDatabasesTaskData
+          SrcConn="{6DAE4A78-E9AE-4092-95A5-90508DB8D566}"
+          DestConn="{36C90736-8D67-4DD7-81EA-06AE560CC127}"
+          Method="1"
+          SrcDBName="db_Ravi"
+          ReattachSrcDB="True"
+          SrcDBFiles="&quot;db_Ravi.mdf&quot;,&quot;C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA&quot;,&quot;&quot;;&quot;db_Ravi_log.ldf&quot;,&quot;C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA&quot;,&quot;&quot;"
+          DestDBName="db_Ravi"
+          DestDBFiles="&quot;db_Ravi.mdf&quot;,&quot;C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER01\MSSQL\DATA&quot;,&quot;&quot;;&quot;db_Ravi_log.ldf&quot;,&quot;C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER01\MSSQL\DATA&quot;,&quot;&quot;"
+          DestOverwrite="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfer Database Task 1"
+      DTS:CreationName="Microsoft.TransferDatabaseTask"
+      DTS:Description="Transfer Database Task"
+      DTS:DTSID="{BB4C6EA5-C649-4538-AD9D-450CCCDFB3D7}"
+      DTS:ExecutableType="Microsoft.TransferDatabaseTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer Database Task 1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <TransferDatabasesTaskData
+          SrcConn="{6DAE4A78-E9AE-4092-95A5-90508DB8D566}"
+          DestConn="{36C90736-8D67-4DD7-81EA-06AE560CC127}"
+          SrcDBName="db_Ravi"
+          ReattachSrcDB="True"
+          SrcDBFiles="&quot;db_Ravi.mdf&quot;,&quot;C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA&quot;,&quot;C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA&quot;;&quot;db_Ravi_log.ldf&quot;,&quot;C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA&quot;,&quot;C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA&quot;"
+          DestDBName="db_Ravi"
+          DestDBFiles="&quot;db_Ravi.mdf&quot;,&quot;C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER01\MSSQL\DATA&quot;,&quot;C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER01\MSSQL\DATA&quot;;&quot;db_Ravi_log.ldf&quot;,&quot;C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER01\MSSQL\DATA&quot;,&quot;C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER01\MSSQL\DATA&quot;"
+          DestOverwrite="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfer SQL Server Objects Task"
+      DTS:CreationName="Microsoft.TransferSqlServerObjectsTask"
+      DTS:Description="Transfer SQL Server Objects Task"
+      DTS:DTSID="{7EA2207B-3AF9-4497-9ACE-F1F1427F7D51}"
+      DTS:ExecutableType="Microsoft.TransferSqlServerObjectsTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer SQL Server Objects Task"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <TransferSqlServerObjectsTaskData
+          SourceConnection="{6DAE4A78-E9AE-4092-95A5-90508DB8D566}"
+          DestinationConnection="{36C90736-8D67-4DD7-81EA-06AE560CC127}"
+          SourceDatabase="db_Ravi"
+          DestinationDatabase="db_Ravi"
+          TablesList="1,24,[dbo].[TBL_EMPLOYS_DATA],"
+          DropObjectsFirst="True"
+          CopyData="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Transfer Database Task"
+          TopLeft="82.0000000000001,46.3333333333333" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Transfer Database Task 1"
+          TopLeft="347,49" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\Transfer SQL Server Objects Task"
+          TopLeft="579.666666666667,45.6666666666667" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

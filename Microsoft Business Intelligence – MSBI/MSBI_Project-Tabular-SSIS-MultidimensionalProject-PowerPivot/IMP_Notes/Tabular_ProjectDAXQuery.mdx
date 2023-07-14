@@ -1,0 +1,291 @@
+--
+// comment
+
+// columns [Column Name]
+//Table 'Table Name' TableName
+//Values "Atlanta"
+
+EVALUATE
+   'InternetSales'
+
+   
+EVALUATE
+   InternetSales
+
+   
+EVALUATE
+	FILTER
+	(
+	'InternetSales'
+	,'InternetSales'[UnitPrice]>100
+	)
+
+
+EVALUATE
+	FILTER
+	(
+		FILTER
+		(
+		'InternetSales'
+		,'InternetSales'[UnitPrice]>100
+		)
+	,'InternetSales'[SalesAmount]>500
+	)
+
+
+EVALUATE
+	FILTER
+	(
+		FILTER
+		(
+		'InternetSales'
+		,'InternetSales'[UnitPrice]>100
+		)
+	,'InternetSales'[SalesAmount]>500
+	)
+ORDER BY 'InternetSales'[OrderDateKey]
+
+
+
+EVALUATE
+	FILTER
+	(
+		FILTER
+		(
+		'InternetSales'
+		,'InternetSales'[UnitPrice]>100
+		)
+	,'InternetSales'[SalesAmount]>500
+	)
+ORDER BY InternetSales[OrderDateKey]
+
+
+EVALUATE
+	FILTER
+	(
+		FILTER
+		(
+		'InternetSales'
+		,'InternetSales'[UnitPrice]>100
+		)
+	,'InternetSales'[SalesAmount]>500
+	)
+ORDER BY [OrderDateKey]
+
+
+
+EVALUATE
+	FILTER
+	(
+		FILTER
+		(
+		'InternetSales'
+		,'InternetSales'[UnitPrice]>100
+		)
+	,'InternetSales'[SalesAmount]>500
+	)
+ORDER BY 'InternetSales'[OrderDateKey] DESC
+
+
+
+EVALUATE
+	FILTER
+	(
+		FILTER
+		(
+		'InternetSales'
+		,'InternetSales'[UnitPrice]>100
+		)
+	,'InternetSales'[SalesAmount]>500
+	)
+ORDER BY 'InternetSales'[OrderDateKey] DESC
+,'InternetSales'[SalesAmount] DESC
+
+
+
+EVALUATE
+	'SalesTerritory'
+ORDER BY 'SalesTerritory'[SalesTerritoryGroup]
+,'SalesTerritory'[SalesTerritoryCountry]
+
+
+EVALUATE
+	'SalesTerritory'
+ORDER BY 'SalesTerritory'[SalesTerritoryGroup]
+,'SalesTerritory'[SalesTerritoryCountry]
+START AT  "North America"
+
+
+EVALUATE
+	'SalesTerritory'
+ORDER BY 'SalesTerritory'[SalesTerritoryGroup] DESC
+,'SalesTerritory'[SalesTerritoryCountry]
+START AT  "North America"
+
+
+
+
+EVALUATE
+CALCULATETABLE 
+	(
+	'SalesTerritory'
+	,'SalesTerritory'[SalesTerritoryGroup]="North America"
+	)
+
+
+
+EVALUATE
+ADDCOLUMNS 
+	(
+	'InternetSales'
+	,"GrossProfits"
+	,'InternetSales'[SalesAmount]-'InternetSales'[TotalProductCost]
+	)
+
+	
+EVALUATE
+ADDCOLUMNS 
+	(
+	'InternetSales'
+	,"ProfitMarginPercent"
+	,DIVIDE('InternetSales'[SalesAmount]-'InternetSales'[TotalProductCost],'InternetSales'[TotalProductCost])
+	)
+
+
+
+EVALUATE
+ADDCOLUMNS 
+	(
+	'InternetSales'
+	,"ProfitMarginPercent"
+	,DIVIDE('InternetSales'[SalesAmount]-'InternetSales'[TotalProductCost],'InternetSales'[TotalProductCost])
+	,"GrossProfits"
+	,'InternetSales'[SalesAmount]-'InternetSales'[TotalProductCost]
+	)
+
+
+EVALUATE
+SUMMARIZE
+	(
+	'InternetSales',
+	'InternetSales'[OrderDate]
+	,"TotalSalesAmount"
+	,SUM('InternetSales'[SalesAmount])
+	)
+
+
+
+EVALUATE
+SUMMARIZE
+	(
+	'InternetSales',
+	'Date'[CalendarYear]
+	,"TotalSalesAmount"
+	,SUM('InternetSales'[SalesAmount])
+	)
+
+
+	
+
+EVALUATE
+SUMMARIZE
+	(
+	'InternetSales',
+	'Date'[CalendarYear],
+	'Date'[MonthNumberOfYear]
+	,"TotalSalesAmount"
+	,SUM('InternetSales'[SalesAmount])
+	)
+
+
+
+EVALUATE
+SUMMARIZE
+	(
+	'InternetSales',
+	ROLLUP('Date'[CalendarYear],'Date'[MonthNumberOfYear])
+	,"TotalSalesAmount"
+	,SUM('InternetSales'[SalesAmount])
+	)
+
+
+EVALUATE
+SUMMARIZE
+	(
+	'Product',
+	'Product'[Color],
+	'Product'[Size],
+	"TotalProductsCount",
+	COUNTROWS('Product')
+	)
+	ORDER BY 'Product'[Color]
+	,'Product'[Size]
+
+
+
+
+EVALUATE
+ADDCOLUMNS
+	(
+	CROSSJOIN
+	(
+	DISTINCT('Product'[Color]),
+	DISTINCT('Product'[Size])
+	)
+	,"ProductCount",
+	COUNTROWS( RELATEDTABLE ( 'Product'))
+	)
+ORDER BY 'Product'[Color]
+	,'Product'[Size]
+
+
+
+
+DEFINE
+   MEASURE 'InternetSales'[Test]="Test"
+
+EVALUATE
+ADDCOLUMNS
+	(
+	'InternetSales',
+	"SampleTest",
+	'InternetSales'[Test]
+	)
+
+
+
+DEFINE
+   MEASURE 'ProductSubCategory'[ProductSubCategoryCount]=CountRows( RelatedTable('ProductSubCategory'))
+   MEASURE 'Product'[ProductCount]=CountRows( RelatedTable('Product'))
+
+EVALUATE
+ADDCOLUMNS
+	(
+	'ProductSubCategory',
+	"ProductSubCategoryCount",
+	'ProductSubCategory'[ProductSubCategoryCount],
+	"ProductsCount",
+	'Product'[ProductCount]
+	)
+
+
+
+
+EVALUATE 
+GENERATE
+	(
+	VALUES('ProductCategory'[EnglishProductCategoryName]),
+	CALCULATETABLE
+		(
+		VALUES('ProductSubcategory'[EnglishProductSubcategoryName])
+		)
+	)
+
+
+
+
+
+
+
+
+

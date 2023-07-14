@@ -1,0 +1,156 @@
+--sql server
+--Select * from table_name
+
+select items on columns,items on rows from [Cube_AdventureWorksDW]
+
+
+select items on 0,items on 1 from Cube_AdventureWorksDW
+select items on axis 0,items on axis 1 from Cube_AdventureWorksDW
+
+--total sales
+Select [Measures].[Yearly Income] on columns from [Cube_AdventureWorksDW]
+
+
+Select [Measures].[Yearly Income] on columns from [Cube_AdventureWorksDW]
+
+
+Select [Measures].[Sales Amount] on columns
+[Dim_Category].[English Product category Name].[English Product Category Name] on rows
+from [Cube_AdventureWorks]
+
+
+Select [Measures].[Sales Amount] on columns
+[Dim_Category].[English Product category Name]on rows
+from [Cube_AdventureWorks]
+
+
+--DimensionName.Hierarchyname.level
+--DimensionName.Hierarchyname.Members
+
+--To remove Null Vales
+Select [Measures].[Sales Amount] on columns
+NON Empty ([Dim_Category].[English Product category Name]) on rows
+from [Cube_AdventureWorks]
+
+Select [Measures].[Sales Amount] on columns
+NON Empty ([Dim_Category].[English Product category Name],
+			[Order date].[Calender Year].[Calender Year]) on rows
+from [Cube_AdventureWorks]
+
+
+Select ([Measures].[Sales Amount],[Order date].[Calender Year].[Calender Year]) on columns
+NON Empty ([Dim_Category].[English Product category Name].[English Product category Name]) on rows
+from [Cube_AdventureWorks]
+
+Select NON Empty ([Measures].[Sales Amount],[Order date].[Calender Year].[Calender Year]) on columns
+NON Empty ([Dim_Category].[English Product category Name].[English Product category Name]
+			[Dim_SubCategory].[English Product Subcategory Name].[English Product Subcategory Name]) on rows
+from [Cube_AdventureWorks]
+
+
+Select  ([Dim Product].[Color].[Color]) on columns
+NON Empty ([Measures].[Sales Amount]) on rows
+from [Cube_AdventureWorks]
+
+Select  ([Dim Product].[Color].[Color]) on columns
+NON Empty ([Measures].[Sales Amount]) on rows
+from [Cube_AdventureWorks] 
+WHERE [Dim Product].[Color].&[Black]
+
+
+Select  ([Dim Product].[Color].[Color]) on columns --Axis 0
+NON Empty ([Measures].[Sales Amount]) on rows  --Axis 1
+from [Cube_AdventureWorks] 
+WHERE [Order Date].[Calender Year].&[2008]
+
+
+--Sets --members from the same hierarchy are called as sets
+
+Select  {[Measures].[Sales Amount],[Measures].[Tax Amount]} on columns
+NON Empty ([Dim Product].[English Product Name]) on rows
+from [Cube_AdventureWorks] 
+
+--Tuples --members from the diffrent hierarchy are called as Tuples
+
+Select  NON Empty {[Measures].[Sales Amount],[Measures].[Tax Amount]} on columns
+NON Empty ([Dim_Category].[English Product Category Name].[English Product Category Name],
+[Dim Product].[English Product Name].[English Product Name]) on rows
+from [Cube_AdventureWorks] 
+
+Select  [Measures].[Sales Amount]on columns
+NON Empty ([Order Date].[Calender Year].[Calender Year]) on rows
+from [Cube_AdventureWorks] 
+
+
+Select  [Measures].[Sales Amount]on columns
+NON Empty {[Order Date].[Calender Year].&[2005],[Order Date].[Calender Year].&[2006]} on rows
+from [Cube_AdventureWorks] 
+
+Select  [Measures].[Sales Amount]on columns
+NON Empty [Dim Product].[English Product Name] on rows
+from [Cube_AdventureWorks] 
+
+
+Select  [Measures].[Sales Amount]on columns
+NON Empty [Dim Product].[English Product Name].members on rows
+from [Cube_AdventureWorks] 
+
+Select  [Measures].members on columns
+NON Empty [Dim Product].[English Product Name].members on rows
+from [Cube_AdventureWorks] 
+
+Select  [Measures].allmembers on columns
+NON Empty [Dim Product].[English Product Name].allmembers on rows
+from [Cube_AdventureWorks] 
+
+Select  [Measures].[Sales Amount]on columns
+NON Empty [Dim Product].[English Product Name].children on rows
+from [Cube_AdventureWorks] 
+
+
+Select  [Measures].[Sales Amount]on columns
+NON Empty [Order Date].[Calender Year].members on rows
+from [Cube_AdventureWorks] 
+
+Select  [Measures].[Sales Amount]on columns
+NON Empty [Order Date].[Calender Year]&[2006].siblings on rows
+from [Cube_AdventureWorks] 
+
+Select  [Measures].[Sales Amount]on columns
+descendants ([Order Date].[Hierarchy]&[2006]) on rows
+from [Cube_AdventureWorks] 
+
+
+Select  [Measures].[Sales Amount]on columns
+descendants ([Order Date].[Calender Quarter].&[3]&[2007]) on rows
+from [Cube_AdventureWorks] 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

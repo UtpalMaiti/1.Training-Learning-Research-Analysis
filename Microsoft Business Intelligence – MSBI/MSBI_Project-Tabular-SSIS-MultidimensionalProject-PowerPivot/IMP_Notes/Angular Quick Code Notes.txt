@@ -1,0 +1,946 @@
+Shift+ctrl+p >> Commend Palette  >>Code Install paths
+
+form:ElementRef
+form:NgForm
+console.log(form);
+@viewChild('f') signUpform:NgForm;
+console.log(form);
+NgFormGroup='Userdata'
+
+
+What is Webpack?
+A tool that creates bundles for JavaScript code and stylesheets and injects those bundles into index.html at run-time. 
+npm init --yes
+Webpack-cli init
+
+<img  [src]= "imageUrl " /> 			>>Interpolation 
+<img src="{{imageUrl}}" alt="" srcset="">	>>Property Binding 
+
+<td>onkeyUp($event)
+<input type="text" name="Txt1" (keyup.enter)="onkeyUp($event)" id="">
+</td>
+<td>onkeyUp1(email.value)
+<input type="text" name="Txt1" #email (keyup.enter)="onkeyUp1(email.value)" id="">
+</td>
+
+--Components--
+selector: 'app-server',   In HTML >>  <app-server> </app-server> --selector
+selector: '[app-server]',   In HTML >>  <div app-server> </div> --selector  by attribute
+selector: '.app-server',   In HTML >>  <div class="app-server"> </div > --selector by class
+selector: '#app-server',   In HTML >>  <div id="app-server"> </div> --selector
+
+----Databinding----
+String Interpolation {{ data }}
+Property Binding [Property]="data"
+(click)="expression"
+
+----TWO Databinding----
+import { FormsModule } from '@angular/forms';
+FormsModule  to the imports[]  array in the AppModule.
+[(ngModel)]="serverName" >define in Html Element.
+
+Two Way Bindling
+<input [(ngModel)]="email" (keyup.enter)="onKeyUp()">
+
+<p [ngStyle]="{ color : getColor() }">  hhhh {{'Server'}} with ID {{ serverId }} is {{ getServerStatus() }} </p>
+[ngStyle]="{ color : getColor() }"
+
+<div
+ *ngFor="let log of logs "
+ [ngStyle]="{backgroundColor: log>=5 ?'blue':'green'}" 
+ [ngClass]="{'white-text': log>=5 }"
+ >{{log}}</div>
+
+ <div
+ *ngFor="let log of logs let i=index "
+ [ngStyle]="{backgroundColor: i>=5 ?'blue':'green'}" 
+ [ngClass]="{'white-text': i>=5 }"
+ >{{log}}</div>
+
+
+----Debagging tools---
+augury
+
+
+
+//5.Building Re-usable Components
+@input
+@output
+@viewChild
+Encapsulation.Enamted
+<ng-content></ng-content>
+
+ngOnChanges
+ngOnInit
+ngDoCheck
+ngAfterContentInit
+ngAfterContentChecked
+ngAfterViewInit
+ngAfterViewChecked
+ngOnDestroy
+
+@input('isFavorite') isSelected:Boolean;     //Aliasing Input  // Variables
+@Input('likesCount') likesCount: number;
+@Output() change = new EventEmitter();	//Output  are Events
+encapsulation:ViewEncapsulation.Emulated //this is default which is all times
+<ng-container class="heading">Heading</ng-container>  //ng-container
+<ng-content select='.body' ></ng-content>	//ng-content
+
+FormsModule added to your imports[] in the AppModule
+
+  [ngClass]="{'class': true}"
+  [ngStyle]="{'property': expression}"
+
+-------Directives Deep Dive------
+Directive selector [selectorName]
+ng generate directive <name> [options]
+
+ElementRef,Renderer2,TemplateRef<any>,ViewContainerRef
+@HostListener('mouseenter') mouseover(eventdata:event){
+
+}
+
+@HostBinding('style.backgroundColor') backgroundColor:String='transparent';
+
+
+@Component({
+  providers:[LogService]
+})
+@Injectable()
+
+----Course Project - Services & Dependency Injection-----
+Routes Module from @angular/router;Routes Module from @angular/router;
+this.router.navigate(['/server']);
+
+in app.Mudule.ts
+ActivatedRoute
+
+
+const appRoutes:Routes=[
+  {path :'' ,Component:HomeComponent}
+  {path :user' ,Component:userComponent children:[
+    {path :':id',CanActivate:[AuthGurd],CanActivateChild:[AuthGurd] Component:UserComponent}   //Id dynamic Value
+    {path :':id/:name' Component:UserComponent,CanDeActivate:[CanDeActivateAuthGurd]}   //Id dynamic Value
+  ]}
+  {path :server' Component:serverComponent,children:[
+    {path ::id', Component:EditServerComponent,resolve:{server:serverResolver}},
+    {path ::id/edit' Component:EditServerComponent}
+  ]}
+  {path :'sometings' redirectTo:'/ErrorPageComponent'}
+  {path :'notfound' Component:ErrorPageComponent,data:{messge:page not found}}
+  {path :'**' Component:ErrorPage}
+];
+RouterModule.forRoot(appRoutes,{useHash:true})
+RouterModule.forRoot(appRoutes)
+
+routerLink="/"
+routerLink="/server"
+[routerLink]="'/users','sometings'"
+
+routerLinkActive="active"
+[routerLinkActiveOptions]="{exact:true}"
+this.router.navigate(['/server']); Routes Module from @angular/router;
+this.router.navigate(['/server'],relatieTo:this.route);
+
+import {Subcription} from 'rxjs/Subcription';
+paramsSubscription:Subcription;
+
+ngOnInit(){
+  this.user={
+    id:this.route.snapshot.params['id'],
+    name: this.route.snapshot.params['name']
+  };
+   this.paramsSubscription=this.route.params.subscribe(
+    (params:Params)=>{
+      this.user.id=params['id'];
+      this.user.name=params['name'];
+    }
+  );
+}
+<a [routerLink]="['/users',10,'Anna']"> Load Anna(10)</a>  /user/10/anna
+ngOnDestroy(){
+  this.paramsSubscription.unsubcribe();
+}
+
+<a [routerLink]="['/servers',5,'edit']"
+[queryParams]="{allowedit:'1'}"
+fragment="Loading"
+> Load Anna(10)</a>  /user/10/anna
+
+=====Adding queryParams and fragment
+onLoadServer(id:number){
+this.router.navigate(['/server',id,'edit'],{queryParams:{allowedit:1},fragment:'Loading'});
+}
+
+=====Retriving queryParams and fragment
+ngOnInit(){
+  console.log(this.route.snapshot.queryParams);
+  console.log(this.route.snapshot.fragment);
+  this.route.queryParams.subscribe();
+  this.route.snapshot.queryParams.subscribe();
+}
+
+onEdit(){
+  this.router.navigate(['edit'],{relativeTo:this.route,queryParamsHandling:'preserve'})
+}
+
+CanActivate,
+ActivatedRouteSnapsot,
+RouteStateSnapshot,
+CanActivateChild,
+CanDeActivate
+import {Observable} from 'rxjs/Observable';
+
+
+canActivate(
+  route: ActivatedRouteSnapshot, 
+  state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
+
+
+//6.Directives
+
+<ng-template [ngif]="!onlyOdd">
+<div>
+This is a Block.
+</div>
+</ng-template>
+
+@input() set unless(condition:boolean){
+if()
+else
+}
+
+<div *ngIf="courses.length>0 then coursesList else noCourses"></div>
+<ng-template #coursesList>
+    list of Courses
+</ng-template>
+<ng-template #noCourses>
+    No Courses Yet.
+</ng-template>
+
+<div [hidden]="courses.length==0"> 
+    list of Courses
+</div>
+<div [hidden]="courses.length>0"]>
+    No Courses Yet.
+</div>
+
+//12.Deployment
+node_modules/.bin/nac for Compilation
+
+ng build 	//Development Build 
+ng build --prod  //Production build
+ng build --env=prod  //Production build
+ng build --environment =prod  //Production build
+
+ng build --env=prod` then `environment.prod.ts
+
+Linter//
+
+ng lint
+ng lint --fix
+command Pallate
+Tslint: Fix allauto-fixable problems 
+
+git remote add origin https://github.com/UtpalMaiti/New-app.git
+git push -u origin master
+npm I -g angular-cli-ghpages
+ng build --prod --base-href="https://utpalmaiti.github.io/New-app/"
+https://username.github.io/repository
+ngh --no-silent
+"deploy:gh" : "ng build --prod --base-href="https://utpalmaiti.github.io/New-app/"
+" && ngh --no-silent
+
+npm i -g firebase-tools
+firebase login
+firebase init
+firebase.json
+{
+ "hosting" {
+	"public" : "dist"
+	"rewrites" : [
+	{
+	 "source" : "**",
+	"destination" : "/index.html"
+	}
+	]
+	}
+}
+
+ng build --prod
+firebase deploy
+"deploy:firebase" : "ng build --prod && firebase deploy "
+
+Heroku CLI 
+heroku --version
+heroku login
+heroku create
+heroku Open
+
+@angular/cli
+@angular/compiler
+typescript
+
+"postinstall" : "ng build --prod"
+"start": "node server.js"
+
+git add .
+git commit -m "Prepare for Heroku"
+git remote
+git push heroku master
+
+"engines" : {
+	"node" :"6.10.3"
+	"npm": "5.3.0"
+}
+
+move these to dependences
+
+//13.Building Real-time Server-less Apps with Firebase
+npm install firebase angularfire2 --save
+environment.ts //ading some firease settings
+
+ // Initialize Firebase
+  "firebase" : {
+    apiKey: "AIzaSyAsBdNiwxDiyyfGYK41HlnSblC6KjrXB_c",
+    authDomain: "fir-demo-b9aa5.firebaseapp.com",
+    databaseURL: "https://fir-demo-b9aa5.firebaseio.com",
+    projectId: "fir-demo-b9aa5",
+    storageBucket: "fir-demo-b9aa5.appspot.com",
+    messagingSenderId: "573369674326"
+  };
+
+@NgModule>>imports>
+AngularFireModule.initializeApp(enviroment.firebase),
+AngularFireDatabaseModule
+
+//14.Animations
+animate.CSS 
+BrowserAnimationsModule
+polyfills>> Uncomment IE Section
+npm I web-animation-js
+
+@component>>animations
+
+CSS Transitions
+https://www.w3.org/TR/css-transitions-1/#animatable-properties
+
+button{outline:0}
+cubic-bezier(.17,.67,.83,.67)
+http://cubic-bezier.com
+animate('0.5s 1s',style({transform :translateX(100%) })
+animate('0.5s 1s ease-in',style({transform : })
+animate('0.5s cubic-bezier(.03,.97,.99,.01)',style({transform : })
+
+Keyframes
+stagger(200)
+stagger('200ms')
+
+zippy.component.animation.ts
+animations:[expendCollapse]
+
+//15.Angular Material 2
+npm install --save @angular/material @angular/cdk @angular/animations
+npm i hammerjs
+global.css>>
+@import "~@angular/material/prebuild-themes/indigo-pink.css"
+@import '~bootstrap/dist/css/bootstrap.css';
+
+//16.Redux
+npm i redux ng2-redux
+npm i tassign --save
+npm I immutable --save
+store.ts
+
+//19.Project Getting Started
+https://github.com/mosh-hamedani/organic-shop
+async placeOrder(order) {
+   let result = await this.db.list(‘/orders’).push(order);
+   this.shoppingCartService.clearCart();
+   return result; 
+}
+
+ts config//
+
+"baseUrl" : "./src",
+"paths" :{
+     "shared/*" : [
+	"app/shared/*"	
+]
+}
+ng g m admin
+
+
+--------Docker--------
+docker pull microsoft/mysql-server-linux
+
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=MyComplexPassword!1234'
+-p 1433:1433 -v /user/my/db:/var/opt/mssql
+
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=MyComplexPassword!1234'
+-p 1433:1433 -d microsoft/mssql-linux
+
+docker ps 
+ docker stop <first 4 letter of Docker Id>
+
+docker ps -a
+docker cp <4 first 4 letter docker id>:/var/opt/mssql/log/errorlog .
+
+--------- ASP State Server Session ------------------
+aspnet_regsql -d lifecwsr_livechatsession -S TECHCROME-1\SQLEXPRESS -U sa -P Tech@Crome#123 -ssadd -sstype c
+
+---requiredd field validator issue solution
+<appSettings>
+        <add key="ValidationSettings:UnobtrusiveValidationMode" value="None" />
+</appSettings>
+
+
+TOPIC
+    about_EntityFramework
+
+SHORT DESCRIPTION
+    Provides information about Entity Framework commands.
+
+LONG DESCRIPTION
+    This topic describes the Entity Framework commands. Entity Framework is
+    Microsoft's recommended data access technology for new applications.
+
+    The following Entity Framework cmdlets are used with Entity Framework
+    Migrations.
+
+        Cmdlet              Description
+        -----------------   ---------------------------------------------------
+        Enable-Migrations   Enables Code First Migrations in a project.
+
+        Add-Migration       Scaffolds a migration script for any pending model
+                            changes.
+
+        Update-Database     Applies any pending migrations to the database.
+
+        Get-Migrations      Displays the migrations that have been applied to
+                            the target database.
+
+    The following Entity Framework cmdlets are used by NuGet packages that
+    install Entity Framework providers. These commands are not usually used as
+    part of normal application development.
+
+        Cmdlet                          Description
+        ------------------------------  ---------------------------------------
+        Add-EFProvider                  Adds or updates an Entity Framework
+                                        provider entry in the project config
+                                        file.
+
+        Add-EFDefaultConnectionFactory  Adds or updates an Entity Framework
+                                        default connection factory in the
+                                        project config file.
+
+        Initialize-EFConfiguration      Initializes the Entity Framework
+                                        section in the project config file and
+                                        sets defaults.
+
+SEE ALSO
+    Enable-Migrations
+    Add-Migration
+    Update-Database
+    Get-Migrations
+
+
+-----DOTNET CORE  EFCORE----------
+dotnet run
+Set ASPNETCORE_Environment="Development" 
+.net Watch Tool
+Dotnet Restore
+dotnet watch run
+
+dotnet add package Microsoft.Dotnet.Watcher.Tools
+dotnet add package Microsoft.EntityFrameworkCore.sqlserver
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.Tools.Dotnet
+dotnet restore 
+dotnet watch run
+
+Automapper
+dotnet add package AutoMapper --version 8.0.0
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
+
+
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+dotnet restore
+
+enable-migrations
+
+dotnet ef
+dotnet ef migrations add InitialModel
+dotnet ef migrations remove
+dotnet ef database update
+
+dotnet ef database update 0
+dotnet ef migrations remove
+dotnet ef migrations add SeedDatabase
+dotnet ef database update
+
+
+-------------LINQ (Language Integrated Query)----------
+
+//Get only short words
+        var shortWords = from word in words where word.Length >= 5 select word;
+
+Lamda (Method) Syntax
+var longWords = words.Where( w ⇒ w.length > 10);
+
+
+where
+IEnumerable<string> query = from word in words where word.Length == 3 select word;
+//Filter values based on a predicate function
+
+
+
+------LazyLoading in Entity Framwork----------
+
+Best Practicices
+1.Use When loading an Object Graph is Costly
+2.Use in Desktop Application.
+3.Avoid in Web Application
+
+4.To stop LazyLoading Don't Mark "Virtual" Keyword In Property.
+5.To Disbale LazyLoading From Configuration . In Plutodb_Context
+            this.Configuration.LazyLoadingEnabled = false;
+			
+Eager Loading
+1.Uses JOINs
+2.One Round-Trip
+3.use Web application
+
+Multiple Levels.
+//For SIngle Properties
+context.Courses.Include(c=>c.Author.Address);
+
+//for Collection Properties
+context.Courses.Include(a=>a.Tages);
+
+//Too Many Egar Loading
+context.Courses.Include(c=>c.Author.Address)
+				.Include(a=>a.Tages.Select(t=>t.Moderator))
+				.Include(c=>c.Catagory)
+				.Include(c=>c.Cover);
+								
+Explict Loading
+1.Separates Queries
+2.Multiple Round-Trips
+
+------------ NuGet Package Manager Console-------------
+Install-package automapper -version:4.1
+
+enable-migrations
+add-migration Initialmodel			(First)
+cls
+add-migration Initialmodel -force    (Already Exitig)
+Update-database
+
+-------- Typescript Language -------------
+npm install-g typescript > To install Typescript  Globally.
+tsc --version
+
+tsc main.ts		//for Compailing
+code main.js	//result of Ts to Js  file
+node Main.js //run
+tsc variable.ts | node variable.js
+rm Variable.js //to Remove Exiting js File in Node
+tsc *.ts --target ES5 && node main.js
+
+//ts lint
+npm run tslint --fix src/**/*.ts
+
+//Type Assertions
+let message;
+message='abc';
+let endWithC=(message as string).endsWith('c');
+let AlternativeWay=(<string>message).endsWith('c');
+
+//Arrow Function 
+let doLog=(message:string)=>console.log(message);
+
+//Interface
+interface IPoint{
+    x:number,
+    y:number
+}
+let drawPoint=(point:IPoint)=>{
+    //.......
+}
+drawPoint({
+    x:1,
+    y:2
+});
+
+//Class
+class Point{
+    x:number;
+    y:number;
+    draw(){
+        //....
+    }
+    getDistance(another:Point){
+        //...
+    }
+}
+
+// Objects
+
+let point= new Point();
+
+//Constructors //Nullable (?)
+
+  constructor( x?:number, y?:number){
+    this.x=x;
+    this.y=y;
+    }
+
+//Modules
+export class Point{}
+import { Point } from "./point";
+
+
+Command Prompts
+To Install typescript Globally(-g)	> npm install -g typescript
+For our nightly builds: 		> npm install -g typescript@next
+To Check TypeScript Version		> tsc -v 
+To Compile Files			> tsc <Filename.ts> //tsc App.ts  then You will get .js file as its Same 
+To Run Files				> Node <Filename.js> //node App.js
+
+
+Type Annotation in TypeScript  (:Type)
+var age: number = 32; // number variable
+
+// Declare a tuple  
+let a: [string, number];  
+  // Initialize it  
+a = ["hi", 8, "how", 5]; // OK  
+
+Interface
+interface Calc {  
+    subtract (first: number, second: number): any;  
+}  
+   
+let Calculator: Calc = {  
+    subtract(first: number, second: number) {  
+        return first - second;  
+    }  
+}  
+
+Generic
+function identity<T>(arg: T): T {  
+    return arg;  
+}  x`
+let output1 = identity<string>("myString");  
+let output2 = identity<number>( 100 );  
+
+Decorators
+function f() {  
+    console.log("f(): evaluated");  
+    return function (target, propertyKey: string, descriptor: PropertyDescriptor) {  
+        console.log("f(): called");  
+    }  
+}  
+  
+class C {  
+    @f()  
+    method() {}  
+}  
+
+
+======NPM NodeJs==========
+
+npm --version
+npm init 
+npm init --yes
+npm I -g npm
+npm install -g npm --save
+npm I -g npm@versionno
+npm list 
+npm list --depth=0
+npm view mongoose
+npm view mongoose dependencies 
+npm view mongoose versions
+npm view mongoose@2.4.2
+npm outdated
+npm -g outdated
+npm update
+npm i -g npm-check-updates
+npm-check-updates
+ncu -u
+ncu -a
+npm i
+npm i jshint --save-dev
+npm audit
+npm audit fix
+npm uninstall mongoose
+npm un git
+
+npm adduser
+npm login
+npm publish
+npm version major
+npm version minor
+npm version patch
+npm publish
+
+npm yo
+npm angular-cli-ghpages
+npm firebase-tools
+npm generator-aspnetcore-spa
+npm webpack
+npm typescript
+npm @angular/cli
+
+npm i express
+npm i -g nodemon
+
+process.env.PORT
+
+Enviremet variable set in windows(set),Mac(export)
+set PORT=5000;
+
+rc //for configuration Metadata
+config //for configuration Metadata
+debug  /for debug tool
+set app_password=123456
+custom-environment-variables.json
+
+mkdir -p /data/db
+
+chown -R `I'd -un` /data/db     //MAC OS
+mongooes //Mogo Db
+mongoimport --db mongo-exercises --collection courses --file exercises-data.json --jsonArray
+
+fawn  //Promise based Library for transactions in MongoDB
+joi-objctid  // ObjectId Checking
+lodash //API Data filter send or receive tool
+joi-password-complexity  /for password complexity validation 
+bcrypt  //password hashing
+jwt
+jsonwebtoken //encreption of Json Data Encoder and decoder
+express-async-errors //for run time error handling 
+Winston    for error logging
+Winston-mongodb    for error logging in mongobd
+
+processManager too for Node
+
+Unit Testing
+Jasmine
+Mocha
+Jest
+
+npm I Jest  for Unit Testing
+test : 'jest --watchAll --verbose'
+cmd >>npm test
+
+Integrating Testing
+npm i supertest --save-dev
+
+test : 'jest --watchAll --verbose --covarge'
+
+npm I moment   for Date
+npm I Helmet
+npm I Compression  Http Cmprssion
+
+Heroku Cli 
+Heroku Login
+
+set HTTP_PROXY=http://proxy.server.com:1234
+
+"Start" : "node Index.js"
+
+"engines" :{
+ "node" : "8.9.1"
+}
+
+git --version
+git init
+git add .
+git commit -m "First commit."
+
+Project folder 
+Heroku Create vidly /<no naame>
+git remote -v		//list of Remote git Repository 
+
+Run Console In Heroku Website.
+bash
+ls
+cat/ls uncoughtexception.log
+
+heroku logs
+Heroku confit:set vidly_jwtPrivateKey=1234
+heroku confit:set NODE_ENV=production
+heroku config
+Heroku Website >>Add-ons >>mlab MongoDB
+
+"db" : "vidly_db"
+
+heroku condig:set vidly_db=mongodb://<dbuser>:<dbpassword>@ds062178.mlab.com:62178/vidly0902
+heroku condig:set vidly_db=mongodb://vidlyuser:sBtstRW4dzZtpC7@ds062178.mlab.com:62178/vidly0902
+
+git add .
+git commit -m "Add support for connStr via an env Variable"
+git push heroku master
+
+
+---------NPM webpack--------
+
+sudo npm uninstall -g angular-cli @angular/cli
+npm cache clean
+sudo npm install -g @angular/cli
+npm cache clean --force
+
+npm I underscore
+npm I @types/underscore
+
+webpack --config webpack.config.vendor.js
+webpack
+webpack.config.vendor.js
+webpack.config.js
+webpack --config webpack.config.vendor.js
+
+----------GIT GITHUB----------
+git init
+git add .
+git commit "Initial Commit"
+
+--------VSCODE-------
+npm TypeScript Hero
+Angular Language Service
+Bracket Pair Colorizer
+Move TS
+Material Icon Theme
+Angular TypeScript Snippets
+
+------------------C# --------------- 
+1. Delegates
+2. Inner Class
+3. c# static constructor
+4. C# properties
+5. C# Collections (Most Important )
+
+Collections
+Stack	=>It can Have Duplicate Value.LIFO (Last In First Out) order.
+Queue	=>It can Have Duplicate Value.FIFO (First In First Out) order.
+List	=> It can Have Duplicate Value
+LinkedList	=>It can have duplicate elements.
+SortedList	=>It stores values on the basis of key. It contains unique keys only.ascending order 
+HashSet	=>It doesn't Have Duplicate Value.Unique Only
+SortedSet	=>doesn't Have Duplicate Value.Unique Only.ascending order
+Dictionary	=>It stores values on the basis of key. It contains unique keys only. 
+SortedDictionary =>It stores values on the basis of key. It contains unique keys only.ascending order 
+
+
+Inheritance :
+
+Type of Inheritance:
+
+1. Single Inheritance
+2. MultiLevel Inheritance
+3. Multiple Inheritance. (Not Supported in JAVA/DotNet)
+4. Hierarchical Inheritance
+5. Hybrid Inheritance (Not Supported in JAVA/DotNet)
+
+Single Inheritance :
+
+		class A  (parent class)
+			|
+		class B	  (child class)
+		
+MultiLevel Inheritance :
+
+		class A
+			|
+		class B
+			|
+		class C
+		
+Multiple Inheritance : (more than One Parent class) Not Supported
+		
+			class A	class B
+				|		|
+				---------
+					|
+				class C
+				
+Hierarchical Inheritance : (One parent class into many child)
+
+				class A
+					|
+		------------------------
+		|			|			|
+	class B		class C		class D
+	
+Hybrid Inheritance : Combination of all classes
+
+				class A
+					|
+				---------
+				|		|
+			class B		class C 
+				|		|
+				---------
+					|
+				class D
+
+
+OOPS : Object oriented Programming structure
+
+Properties :
+1. Class
+2. Object
+3. Data Abstraction and Encapsulation
+4. Inheritance 
+5. Polymorphism.
+
+PolyMorphism :
+
+Poly : many
+Morphism (Morphing -Graphics) - shapes
+
+Example : Mobile phone:-camera,chat,games,video,net , calling
+
+Method overloading : In previous programming languages, the programmer has to choose unique names for each function.
+		OOPS says, that keep same name for all the functions but their arguments must be different.class Method_overload
+    {
+        public void area(int l)//for square
+        {
+            int a;
+            a = l * l;
+            Console.WriteLine("Area of square is " + a);
+        }
+        public void area(int l,int b)//for rectangle
+        {
+            int a;
+            a = l * b;
+            Console.WriteLine("Area of Retangle is " + a);
+        }
+        public void area(double rad)//for circle
+        {
+            double a;
+            a = 3.14 * rad  *rad;
+            Console.WriteLine("Area of Circle is " + a);
+        }
+
+	}
+	
+1. class - individual entity
+2. Inheritance
+3. Interface
+4. Abstract class
+----------------------------------
+class faculty
+{}
+class student : faculty
+{}
+class books
+{}
+----------
+Method OverRiding
+1.How to Stop Inheriting a Class // Sealed 
+2.How to Stop Mothed OverRidding	//
+3.InnerClasses	//
+
+

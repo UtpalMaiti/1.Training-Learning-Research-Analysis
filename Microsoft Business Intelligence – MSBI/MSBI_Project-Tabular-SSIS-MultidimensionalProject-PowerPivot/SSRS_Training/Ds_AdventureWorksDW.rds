@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Ds_AdventureWorksDW">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=localhost;Initial Catalog=AdventureWorksDW2014</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
+    <Prompt>Specify a user name and password for data source Ds_AdventureWorksDW</Prompt>
+  </ConnectionProperties>
+  <DataSourceID>98e7302a-e31e-41a0-b18f-2d4ea94c0eb1</DataSourceID>
+</RptDataSource>

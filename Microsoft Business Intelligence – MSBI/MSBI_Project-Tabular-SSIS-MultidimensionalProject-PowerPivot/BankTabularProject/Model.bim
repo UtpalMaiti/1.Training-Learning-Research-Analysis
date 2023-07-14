@@ -1,0 +1,607 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1500,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/HP_TC;BANKING_PROJECT",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "HP_TC",
+            "database": "BANKING_PROJECT"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "options": {},
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "kind": "SQL",
+          "path": "hp_tc;BANKING_PROJECT",
+          "Username": "sa",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "ACCOUNT tblaccAccount",
+        "columns": [
+          {
+            "name": "accNumber",
+            "dataType": "int64",
+            "sourceColumn": "accNumber"
+          },
+          {
+            "name": "accStatusCode_fk",
+            "dataType": "int64",
+            "sourceColumn": "accStatusCode_fk"
+          },
+          {
+            "name": "accTypeCode_fk",
+            "dataType": "int64",
+            "sourceColumn": "accTypeCode_fk"
+          },
+          {
+            "name": "accCustomerId_fk",
+            "dataType": "int64",
+            "sourceColumn": "accCustomerId_fk"
+          },
+          {
+            "name": "accBalance",
+            "dataType": "double",
+            "sourceColumn": "accBalance"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;BANKING_PROJECT\",",
+                "    ACCOUNT_tblaccAccount = Source{[Schema=\"ACCOUNT\",Item=\"tblaccAccount\"]}[Data]",
+                "in",
+                "    ACCOUNT_tblaccAccount"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ACCOUNT tblaccAccountStatus",
+        "columns": [
+          {
+            "name": "accStatusID",
+            "dataType": "int64",
+            "sourceColumn": "accStatusID"
+          },
+          {
+            "name": "accStatusCode",
+            "dataType": "string",
+            "sourceColumn": "accStatusCode"
+          },
+          {
+            "name": "accStatusDesc",
+            "dataType": "string",
+            "sourceColumn": "accStatusDesc"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;BANKING_PROJECT\",",
+                "    ACCOUNT_tblaccAccountStatus = Source{[Schema=\"ACCOUNT\",Item=\"tblaccAccountStatus\"]}[Data]",
+                "in",
+                "    ACCOUNT_tblaccAccountStatus"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ACCOUNT tblaccAccountType",
+        "columns": [
+          {
+            "name": "accTypeID",
+            "dataType": "int64",
+            "sourceColumn": "accTypeID"
+          },
+          {
+            "name": "accTypeCode",
+            "dataType": "string",
+            "sourceColumn": "accTypeCode"
+          },
+          {
+            "name": "accTypeDesc",
+            "dataType": "string",
+            "sourceColumn": "accTypeDesc"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;BANKING_PROJECT\",",
+                "    ACCOUNT_tblaccAccountType = Source{[Schema=\"ACCOUNT\",Item=\"tblaccAccountType\"]}[Data]",
+                "in",
+                "    ACCOUNT_tblaccAccountType"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "BANK tblcstCustomer",
+        "columns": [
+          {
+            "name": "cstID",
+            "dataType": "int64",
+            "sourceColumn": "cstID"
+          },
+          {
+            "name": "cstAddID_fk",
+            "dataType": "int64",
+            "sourceColumn": "cstAddID_fk"
+          },
+          {
+            "name": "cstBranchId_fk",
+            "dataType": "int64",
+            "sourceColumn": "cstBranchId_fk"
+          },
+          {
+            "name": "cstFirstName",
+            "dataType": "string",
+            "sourceColumn": "cstFirstName"
+          },
+          {
+            "name": "cstLastName",
+            "dataType": "string",
+            "sourceColumn": "cstLastName"
+          },
+          {
+            "name": "cstMiddleName",
+            "dataType": "string",
+            "sourceColumn": "cstMiddleName"
+          },
+          {
+            "name": "cstDOB",
+            "dataType": "dateTime",
+            "sourceColumn": "cstDOB"
+          },
+          {
+            "name": "cstSince",
+            "dataType": "dateTime",
+            "sourceColumn": "cstSince"
+          },
+          {
+            "name": "cstPhone1",
+            "dataType": "string",
+            "sourceColumn": "cstPhone1"
+          },
+          {
+            "name": "cstPhone2",
+            "dataType": "string",
+            "sourceColumn": "cstPhone2"
+          },
+          {
+            "name": "cstFax",
+            "dataType": "string",
+            "sourceColumn": "cstFax"
+          },
+          {
+            "name": "cstGender",
+            "dataType": "string",
+            "sourceColumn": "cstGender"
+          },
+          {
+            "name": "cstemail",
+            "dataType": "string",
+            "sourceColumn": "cstemail"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;BANKING_PROJECT\",",
+                "    BANK_tblcstCustomer = Source{[Schema=\"BANK\",Item=\"tblcstCustomer\"]}[Data]",
+                "in",
+                "    BANK_tblcstCustomer"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "TRANSACTIONS tbltranTransaction",
+        "columns": [
+          {
+            "name": "tranID",
+            "dataType": "int64",
+            "sourceColumn": "tranID"
+          },
+          {
+            "name": "tranCode",
+            "dataType": "string",
+            "sourceColumn": "tranCode"
+          },
+          {
+            "name": "tranAccountNumber_fk",
+            "dataType": "int64",
+            "sourceColumn": "tranAccountNumber_fk"
+          },
+          {
+            "name": "tranCode_fk",
+            "dataType": "int64",
+            "sourceColumn": "tranCode_fk"
+          },
+          {
+            "name": "tranDateTime",
+            "dataType": "dateTime",
+            "sourceColumn": "tranDateTime"
+          },
+          {
+            "name": "tranTransactionAmount",
+            "dataType": "double",
+            "sourceColumn": "tranTransactionAmount"
+          },
+          {
+            "name": "tranMerchant",
+            "dataType": "string",
+            "sourceColumn": "tranMerchant"
+          },
+          {
+            "name": "tranDescription",
+            "dataType": "string",
+            "sourceColumn": "tranDescription"
+          },
+          {
+            "name": "RunningBalance",
+            "dataType": "double",
+            "sourceColumn": "RunningBalance"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;BANKING_PROJECT\",",
+                "    TRANSACTIONS_tbltranTransaction = Source{[Schema=\"TRANSACTIONS\",Item=\"tbltranTransaction\"]}[Data]",
+                "in",
+                "    TRANSACTIONS_tbltranTransaction"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "BANK tbladdAddress",
+        "columns": [
+          {
+            "name": "addId",
+            "dataType": "int64",
+            "sourceColumn": "addId"
+          },
+          {
+            "name": "addLine1",
+            "dataType": "string",
+            "sourceColumn": "addLine1"
+          },
+          {
+            "name": "addLine2",
+            "dataType": "string",
+            "sourceColumn": "addLine2"
+          },
+          {
+            "name": "addPostCode",
+            "dataType": "string",
+            "sourceColumn": "addPostCode"
+          },
+          {
+            "name": "addState",
+            "dataType": "string",
+            "sourceColumn": "addState"
+          },
+          {
+            "name": "addCountry",
+            "dataType": "string",
+            "sourceColumn": "addCountry"
+          },
+          {
+            "name": "addCity",
+            "dataType": "string",
+            "sourceColumn": "addCity"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;BANKING_PROJECT\",",
+                "    BANK_tbladdAddress = Source{[Schema=\"BANK\",Item=\"tbladdAddress\"]}[Data]",
+                "in",
+                "    BANK_tbladdAddress"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "BANK tblbrBranch",
+        "columns": [
+          {
+            "name": "brID",
+            "dataType": "int64",
+            "sourceColumn": "brID"
+          },
+          {
+            "name": "brAddress_fk",
+            "dataType": "int64",
+            "sourceColumn": "brAddress_fk"
+          },
+          {
+            "name": "brBankId_fk",
+            "dataType": "int64",
+            "sourceColumn": "brBankId_fk"
+          },
+          {
+            "name": "brBranchTypeCode_fk",
+            "dataType": "int64",
+            "sourceColumn": "brBranchTypeCode_fk"
+          },
+          {
+            "name": "brBranchName",
+            "dataType": "string",
+            "sourceColumn": "brBranchName"
+          },
+          {
+            "name": "brBranchPhone1",
+            "dataType": "string",
+            "sourceColumn": "brBranchPhone1"
+          },
+          {
+            "name": "brBranchPhone2",
+            "dataType": "string",
+            "sourceColumn": "brBranchPhone2"
+          },
+          {
+            "name": "brBranchFax",
+            "dataType": "string",
+            "sourceColumn": "brBranchFax"
+          },
+          {
+            "name": "brBranchemail",
+            "dataType": "string",
+            "sourceColumn": "brBranchemail"
+          },
+          {
+            "name": "brBranchIFSC",
+            "dataType": "string",
+            "sourceColumn": "brBranchIFSC"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;BANKING_PROJECT\",",
+                "    BANK_tblbrBranch = Source{[Schema=\"BANK\",Item=\"tblbrBranch\"]}[Data]",
+                "in",
+                "    BANK_tblbrBranch"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "TRANSACTIONS tbltranTransactionType",
+        "columns": [
+          {
+            "name": "tranCodeID",
+            "dataType": "int64",
+            "sourceColumn": "tranCodeID"
+          },
+          {
+            "name": "tranTypeDesc",
+            "dataType": "string",
+            "sourceColumn": "tranTypeDesc"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;BANKING_PROJECT\",",
+                "    TRANSACTIONS_tbltranTransactionType = Source{[Schema=\"TRANSACTIONS\",Item=\"tbltranTransactionType\"]}[Data]",
+                "in",
+                "    TRANSACTIONS_tbltranTransactionType"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "BANK tblBank",
+        "columns": [
+          {
+            "name": "bankId",
+            "dataType": "int64",
+            "sourceColumn": "bankId"
+          },
+          {
+            "name": "bankDetails",
+            "dataType": "string",
+            "sourceColumn": "bankDetails"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;BANKING_PROJECT\",",
+                "    BANK_tblBank = Source{[Schema=\"BANK\",Item=\"tblBank\"]}[Data]",
+                "in",
+                "    BANK_tblBank"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "BANK tblbtBranchType",
+        "columns": [
+          {
+            "name": "btId",
+            "dataType": "int64",
+            "sourceColumn": "btId"
+          },
+          {
+            "name": "btTypeCode",
+            "dataType": "string",
+            "sourceColumn": "btTypeCode"
+          },
+          {
+            "name": "btTypeDesc",
+            "dataType": "string",
+            "sourceColumn": "btTypeDesc"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;BANKING_PROJECT\",",
+                "    BANK_tblbtBranchType = Source{[Schema=\"BANK\",Item=\"tblbtBranchType\"]}[Data]",
+                "in",
+                "    BANK_tblbtBranchType"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "f1ceb141-0bd8-49b7-9d9d-82ef1a0a413f",
+        "fromTable": "BANK tblcstCustomer",
+        "fromColumn": "cstBranchId_fk",
+        "toTable": "BANK tblbrBranch",
+        "toColumn": "brID",
+        "isActive": false
+      },
+      {
+        "name": "72ce9e5f-f10b-4d48-ba85-263985984bf8",
+        "fromTable": "ACCOUNT tblaccAccount",
+        "fromColumn": "accStatusCode_fk",
+        "toTable": "ACCOUNT tblaccAccountStatus",
+        "toColumn": "accStatusID"
+      },
+      {
+        "name": "53f64268-eab5-42b3-8d7d-f39c8a564a5e",
+        "fromTable": "ACCOUNT tblaccAccount",
+        "fromColumn": "accTypeCode_fk",
+        "toTable": "ACCOUNT tblaccAccountType",
+        "toColumn": "accTypeID"
+      },
+      {
+        "name": "fe7c9247-6d94-44fb-a2f1-422e8afd0dea",
+        "fromTable": "ACCOUNT tblaccAccount",
+        "fromColumn": "accCustomerId_fk",
+        "toTable": "BANK tblcstCustomer",
+        "toColumn": "cstID"
+      },
+      {
+        "name": "a5150dfb-898a-4b6f-b079-e409f7a489bf",
+        "fromTable": "TRANSACTIONS tbltranTransaction",
+        "fromColumn": "tranAccountNumber_fk",
+        "toTable": "ACCOUNT tblaccAccount",
+        "toColumn": "accNumber"
+      },
+      {
+        "name": "34e006c3-f4d5-4447-87b5-58a09248fcac",
+        "fromTable": "BANK tblcstCustomer",
+        "fromColumn": "cstAddID_fk",
+        "toTable": "BANK tbladdAddress",
+        "toColumn": "addId"
+      },
+      {
+        "name": "fad746c9-84b5-49e7-875b-fc11c8029296",
+        "fromTable": "TRANSACTIONS tbltranTransaction",
+        "fromColumn": "tranCode_fk",
+        "toTable": "TRANSACTIONS tbltranTransactionType",
+        "toColumn": "tranCodeID"
+      },
+      {
+        "name": "2b7b96b0-f11b-4f05-a1aa-39b5274d613f",
+        "fromTable": "BANK tblbrBranch",
+        "fromColumn": "brAddress_fk",
+        "toTable": "BANK tbladdAddress",
+        "toColumn": "addId"
+      },
+      {
+        "name": "bd35a298-3fb0-4ab4-bdd9-264258acc730",
+        "fromTable": "BANK tblbrBranch",
+        "fromColumn": "brBankId_fk",
+        "toTable": "BANK tblBank",
+        "toColumn": "bankId"
+      },
+      {
+        "name": "17b11e31-045e-40ce-8862-1cfa2f2fb1fb",
+        "fromTable": "BANK tblbrBranch",
+        "fromColumn": "brBranchTypeCode_fk",
+        "toTable": "BANK tblbtBranchType",
+        "toColumn": "btId"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

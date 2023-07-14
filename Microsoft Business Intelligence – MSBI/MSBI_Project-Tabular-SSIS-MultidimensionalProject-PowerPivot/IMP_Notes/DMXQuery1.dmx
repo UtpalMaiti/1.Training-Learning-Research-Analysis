@@ -1,0 +1,4 @@
+SELECT
+  Predict([Fact Internet Sales].[Sales Amount],5)
+From
+  [Fact Internet Sales]

@@ -1,0 +1,1947 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1500,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/HP_TC;AdventureWorksDW2014",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "HP_TC",
+            "database": "AdventureWorksDW2014"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "options": {},
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "kind": "SQL",
+          "path": "hp_tc;AdventureWorksDW2014",
+          "Username": "sa",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "InternetSales",
+        "columns": [
+          {
+            "name": "ProductKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductKey"
+          },
+          {
+            "name": "OrderDateKey",
+            "dataType": "int64",
+            "sourceColumn": "OrderDateKey"
+          },
+          {
+            "name": "DueDateKey",
+            "dataType": "int64",
+            "sourceColumn": "DueDateKey"
+          },
+          {
+            "name": "ShipDateKey",
+            "dataType": "int64",
+            "sourceColumn": "ShipDateKey"
+          },
+          {
+            "name": "CustomerKey",
+            "dataType": "int64",
+            "sourceColumn": "CustomerKey"
+          },
+          {
+            "name": "PromotionKey",
+            "dataType": "int64",
+            "sourceColumn": "PromotionKey"
+          },
+          {
+            "name": "CurrencyKey",
+            "dataType": "int64",
+            "sourceColumn": "CurrencyKey"
+          },
+          {
+            "name": "SalesTerritoryKey",
+            "dataType": "int64",
+            "sourceColumn": "SalesTerritoryKey"
+          },
+          {
+            "name": "SalesOrderNumber",
+            "dataType": "string",
+            "sourceColumn": "SalesOrderNumber"
+          },
+          {
+            "name": "SalesOrderLineNumber",
+            "dataType": "int64",
+            "sourceColumn": "SalesOrderLineNumber"
+          },
+          {
+            "name": "RevisionNumber",
+            "dataType": "int64",
+            "sourceColumn": "RevisionNumber"
+          },
+          {
+            "name": "OrderQuantity",
+            "dataType": "int64",
+            "sourceColumn": "OrderQuantity"
+          },
+          {
+            "name": "UnitPrice",
+            "dataType": "decimal",
+            "sourceColumn": "UnitPrice"
+          },
+          {
+            "name": "ExtendedAmount",
+            "dataType": "decimal",
+            "sourceColumn": "ExtendedAmount"
+          },
+          {
+            "name": "UnitPriceDiscountPct",
+            "dataType": "double",
+            "sourceColumn": "UnitPriceDiscountPct"
+          },
+          {
+            "name": "DiscountAmount",
+            "dataType": "double",
+            "sourceColumn": "DiscountAmount"
+          },
+          {
+            "name": "ProductStandardCost",
+            "dataType": "decimal",
+            "sourceColumn": "ProductStandardCost"
+          },
+          {
+            "name": "TotalProductCost",
+            "dataType": "decimal",
+            "sourceColumn": "TotalProductCost"
+          },
+          {
+            "name": "SalesAmount",
+            "dataType": "decimal",
+            "sourceColumn": "SalesAmount"
+          },
+          {
+            "name": "TaxAmt",
+            "dataType": "decimal",
+            "sourceColumn": "TaxAmt"
+          },
+          {
+            "name": "Freight",
+            "dataType": "decimal",
+            "sourceColumn": "Freight"
+          },
+          {
+            "name": "CarrierTrackingNumber",
+            "dataType": "string",
+            "sourceColumn": "CarrierTrackingNumber"
+          },
+          {
+            "name": "CustomerPONumber",
+            "dataType": "string",
+            "sourceColumn": "CustomerPONumber"
+          },
+          {
+            "name": "OrderDate",
+            "dataType": "dateTime",
+            "sourceColumn": "OrderDate"
+          },
+          {
+            "name": "DueDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DueDate"
+          },
+          {
+            "name": "ShipDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ShipDate"
+          },
+          {
+            "type": "calculated",
+            "name": "YearOrdered",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "YEAR([OrderDate])"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "2010",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                "    dbo_FactInternetSales = Source{[Schema=\"dbo\",Item=\"FactInternetSales\"]}[Data],",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(dbo_FactInternetSales, \"OrderDate\", \"OrderDate - Copy\"),",
+                "    #\"Extracted Year\" = Table.TransformColumns(#\"Duplicated Column\",{{\"OrderDate - Copy\", Date.Year, Int64.Type}}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Extracted Year\",{{\"OrderDate - Copy\", \"YearOrdered\"}}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Renamed Columns\", each ([YearOrdered] = 2010))",
+                "in",
+                "    #\"Filtered Rows\""
+              ]
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>let",
+                  "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                  "    dbo_FactInternetSales = Source{[Schema=\"dbo\",Item=\"FactInternetSales\"]}[Data],",
+                  "    #\"Duplicated Column\" = Table.DuplicateColumn(dbo_FactInternetSales, \"OrderDate\", \"OrderDate - Copy\"),",
+                  "    #\"Extracted Year\" = Table.TransformColumns(#\"Duplicated Column\",{{\"OrderDate - Copy\", Date.Year, Int64.Type}}),",
+                  "    #\"Renamed Columns\" = Table.RenameColumns(#\"Extracted Year\",{{\"OrderDate - Copy\", \"YearOrdered\"}}),",
+                  "    #\"Filtered Rows\" = Table.SelectRows(#\"Renamed Columns\", each ([YearOrdered] = 2010))",
+                  "in",
+                  "    #\"Filtered Rows\"</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2011",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                "    dbo_FactInternetSales = Source{[Schema=\"dbo\",Item=\"FactInternetSales\"]}[Data],",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(dbo_FactInternetSales, \"OrderDate\", \"OrderDate - Copy\"),",
+                "    #\"Extracted Year\" = Table.TransformColumns(#\"Duplicated Column\",{{\"OrderDate - Copy\", Date.Year, Int64.Type}}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Extracted Year\",{{\"OrderDate - Copy\", \"YearOrdered\"}}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Renamed Columns\", each ([YearOrdered] = 2011))",
+                "in",
+                "    #\"Filtered Rows\""
+              ]
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>let",
+                  "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                  "    dbo_FactInternetSales = Source{[Schema=\"dbo\",Item=\"FactInternetSales\"]}[Data],",
+                  "    #\"Duplicated Column\" = Table.DuplicateColumn(dbo_FactInternetSales, \"OrderDate\", \"OrderDate - Copy\"),",
+                  "    #\"Extracted Year\" = Table.TransformColumns(#\"Duplicated Column\",{{\"OrderDate - Copy\", Date.Year, Int64.Type}}),",
+                  "    #\"Renamed Columns\" = Table.RenameColumns(#\"Extracted Year\",{{\"OrderDate - Copy\", \"YearOrdered\"}}),",
+                  "    #\"Filtered Rows\" = Table.SelectRows(#\"Renamed Columns\", each ([YearOrdered] = 2011))",
+                  "in",
+                  "    #\"Filtered Rows\"</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2012",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                "    dbo_FactInternetSales = Source{[Schema=\"dbo\",Item=\"FactInternetSales\"]}[Data],",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(dbo_FactInternetSales, \"OrderDate\", \"OrderDate - Copy\"),",
+                "    #\"Extracted Year\" = Table.TransformColumns(#\"Duplicated Column\",{{\"OrderDate - Copy\", Date.Year, Int64.Type}}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Extracted Year\",{{\"OrderDate - Copy\", \"YearOrdered\"}}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Renamed Columns\", each ([YearOrdered] = 2012))",
+                "in",
+                "    #\"Filtered Rows\""
+              ]
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>let",
+                  "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                  "    dbo_FactInternetSales = Source{[Schema=\"dbo\",Item=\"FactInternetSales\"]}[Data],",
+                  "    #\"Duplicated Column\" = Table.DuplicateColumn(dbo_FactInternetSales, \"OrderDate\", \"OrderDate - Copy\"),",
+                  "    #\"Extracted Year\" = Table.TransformColumns(#\"Duplicated Column\",{{\"OrderDate - Copy\", Date.Year, Int64.Type}}),",
+                  "    #\"Renamed Columns\" = Table.RenameColumns(#\"Extracted Year\",{{\"OrderDate - Copy\", \"YearOrdered\"}}),",
+                  "    #\"Filtered Rows\" = Table.SelectRows(#\"Renamed Columns\", each ([YearOrdered] = 2012))",
+                  "in",
+                  "    #\"Filtered Rows\"</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2013",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                "    dbo_FactInternetSales = Source{[Schema=\"dbo\",Item=\"FactInternetSales\"]}[Data],",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(dbo_FactInternetSales, \"OrderDate\", \"OrderDate - Copy\"),",
+                "    #\"Extracted Year\" = Table.TransformColumns(#\"Duplicated Column\",{{\"OrderDate - Copy\", Date.Year, Int64.Type}}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Extracted Year\",{{\"OrderDate - Copy\", \"YearOrdered\"}}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Renamed Columns\", each ([YearOrdered] = 2013))",
+                "in",
+                "    #\"Filtered Rows\""
+              ]
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>let",
+                  "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                  "    dbo_FactInternetSales = Source{[Schema=\"dbo\",Item=\"FactInternetSales\"]}[Data],",
+                  "    #\"Duplicated Column\" = Table.DuplicateColumn(dbo_FactInternetSales, \"OrderDate\", \"OrderDate - Copy\"),",
+                  "    #\"Extracted Year\" = Table.TransformColumns(#\"Duplicated Column\",{{\"OrderDate - Copy\", Date.Year, Int64.Type}}),",
+                  "    #\"Renamed Columns\" = Table.RenameColumns(#\"Extracted Year\",{{\"OrderDate - Copy\", \"YearOrdered\"}}),",
+                  "    #\"Filtered Rows\" = Table.SelectRows(#\"Renamed Columns\", each ([YearOrdered] = 2013))",
+                  "in",
+                  "    #\"Filtered Rows\"</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2014",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                "    dbo_FactInternetSales = Source{[Schema=\"dbo\",Item=\"FactInternetSales\"]}[Data],",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(dbo_FactInternetSales, \"OrderDate\", \"OrderDate - Copy\"),",
+                "    #\"Extracted Year\" = Table.TransformColumns(#\"Duplicated Column\",{{\"OrderDate - Copy\", Date.Year, Int64.Type}}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Extracted Year\",{{\"OrderDate - Copy\", \"YearOrdered\"}}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Renamed Columns\", each ([YearOrdered] = 2014))",
+                "in",
+                "    #\"Filtered Rows\""
+              ]
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>let",
+                  "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                  "    dbo_FactInternetSales = Source{[Schema=\"dbo\",Item=\"FactInternetSales\"]}[Data],",
+                  "    #\"Duplicated Column\" = Table.DuplicateColumn(dbo_FactInternetSales, \"OrderDate\", \"OrderDate - Copy\"),",
+                  "    #\"Extracted Year\" = Table.TransformColumns(#\"Duplicated Column\",{{\"OrderDate - Copy\", Date.Year, Int64.Type}}),",
+                  "    #\"Renamed Columns\" = Table.RenameColumns(#\"Extracted Year\",{{\"OrderDate - Copy\", \"YearOrdered\"}}),",
+                  "    #\"Filtered Rows\" = Table.SelectRows(#\"Renamed Columns\", each ([YearOrdered] = 2014))",
+                  "in",
+                  "    #\"Filtered Rows\"</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Internet SalesAmount",
+            "expression": "SUM([SalesAmount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "kpi": {
+              "targetExpression": "'InternetSales'[InternetsalesAmountTarget]",
+              "targetFormatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+              "statusGraphic": "Traffic Light - Single",
+              "statusExpression": [
+                "var x='InternetSales'[Internet SalesAmount]/'InternetSales'[_Internet SalesAmount Goal] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.2,-1,",
+                "\t                If(x<0.7,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "Measure"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Percentage"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "20"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "70"
+                }
+              ]
+            },
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Distinct Count of SalesOrderNumber",
+            "expression": "DISTINCTCOUNT([SalesOrderNumber])",
+            "formatString": "0"
+          },
+          {
+            "name": "InternetSalesAmountYTD",
+            "expression": "TOTALYTD(InternetSales[Internet SalesAmount],'Date'[FullDateAlternateKey],ALL('Date'))"
+          },
+          {
+            "name": "InternetsalesAmountPY",
+            "expression": "CALCULATE(InternetSales[Internet SalesAmount],SAMEPERIODLASTYEAR('Date'[FullDateAlternateKey]))"
+          },
+          {
+            "name": "InternetsalesAmountTarget",
+            "expression": "(CALCULATE(InternetSales[Internet SalesAmount],SAMEPERIODLASTYEAR('Date'[FullDateAlternateKey])))*1.15"
+          }
+        ]
+      },
+      {
+        "name": "Date",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "FullDateAlternateKey",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "FullDateAlternateKey",
+            "formatString": "MM/dd/yyyy",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "DayNumberOfWeek",
+            "dataType": "int64",
+            "sourceColumn": "DayNumberOfWeek"
+          },
+          {
+            "name": "EnglishDayNameOfWeek",
+            "dataType": "string",
+            "sourceColumn": "EnglishDayNameOfWeek"
+          },
+          {
+            "name": "SpanishDayNameOfWeek",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "SpanishDayNameOfWeek"
+          },
+          {
+            "name": "FrenchDayNameOfWeek",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "FrenchDayNameOfWeek"
+          },
+          {
+            "name": "DayNumberOfMonth",
+            "dataType": "int64",
+            "sourceColumn": "DayNumberOfMonth"
+          },
+          {
+            "name": "DayNumberOfYear",
+            "dataType": "int64",
+            "sourceColumn": "DayNumberOfYear"
+          },
+          {
+            "name": "WeekNumberOfYear",
+            "dataType": "int64",
+            "sourceColumn": "WeekNumberOfYear"
+          },
+          {
+            "name": "EnglishMonthName",
+            "dataType": "string",
+            "sourceColumn": "EnglishMonthName",
+            "sortByColumn": "MonthNumberOfYear"
+          },
+          {
+            "name": "FrenchMonthName",
+            "dataType": "string",
+            "sourceColumn": "FrenchMonthName"
+          },
+          {
+            "name": "MonthNumberOfYear",
+            "dataType": "int64",
+            "sourceColumn": "MonthNumberOfYear"
+          },
+          {
+            "name": "CalendarQuarter",
+            "dataType": "int64",
+            "sourceColumn": "CalendarQuarter"
+          },
+          {
+            "name": "CalendarYear",
+            "dataType": "int64",
+            "sourceColumn": "CalendarYear"
+          },
+          {
+            "name": "CalendarSemester",
+            "dataType": "int64",
+            "sourceColumn": "CalendarSemester"
+          },
+          {
+            "name": "FiscalQuarter",
+            "dataType": "int64",
+            "sourceColumn": "FiscalQuarter"
+          },
+          {
+            "name": "FiscalYear",
+            "dataType": "int64",
+            "sourceColumn": "FiscalYear"
+          },
+          {
+            "name": "FiscalSemester",
+            "dataType": "int64",
+            "sourceColumn": "FiscalSemester"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                "    dbo_DimDate = Source{[Schema=\"dbo\",Item=\"DimDate\"]}[Data]",
+                "in",
+                "    dbo_DimDate"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Calender Hierarchy",
+            "levels": [
+              {
+                "name": "CalendarSemester",
+                "ordinal": 1,
+                "column": "CalendarSemester"
+              },
+              {
+                "name": "CalendarQuarter",
+                "ordinal": 2,
+                "column": "CalendarQuarter"
+              },
+              {
+                "name": "CalendarYear",
+                "ordinal": 0,
+                "column": "CalendarYear"
+              },
+              {
+                "name": "EnglishMonthName",
+                "ordinal": 3,
+                "column": "EnglishMonthName"
+              },
+              {
+                "name": "FullDateAlternateKey",
+                "ordinal": 4,
+                "column": "FullDateAlternateKey"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Product",
+        "columns": [
+          {
+            "name": "ProductKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductKey"
+          },
+          {
+            "name": "ProductAlternateKey",
+            "dataType": "string",
+            "sourceColumn": "ProductAlternateKey"
+          },
+          {
+            "name": "ProductSubcategoryKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductSubcategoryKey"
+          },
+          {
+            "name": "WeightUnitMeasureCode",
+            "dataType": "string",
+            "sourceColumn": "WeightUnitMeasureCode"
+          },
+          {
+            "name": "SizeUnitMeasureCode",
+            "dataType": "string",
+            "sourceColumn": "SizeUnitMeasureCode"
+          },
+          {
+            "name": "EnglishProductName",
+            "dataType": "string",
+            "sourceColumn": "EnglishProductName"
+          },
+          {
+            "name": "SpanishProductName",
+            "dataType": "string",
+            "sourceColumn": "SpanishProductName"
+          },
+          {
+            "name": "FrenchProductName",
+            "dataType": "string",
+            "sourceColumn": "FrenchProductName"
+          },
+          {
+            "name": "StandardCost",
+            "dataType": "decimal",
+            "sourceColumn": "StandardCost"
+          },
+          {
+            "name": "FinishedGoodsFlag",
+            "dataType": "boolean",
+            "sourceColumn": "FinishedGoodsFlag"
+          },
+          {
+            "name": "Color",
+            "dataType": "string",
+            "sourceColumn": "Color"
+          },
+          {
+            "name": "SafetyStockLevel",
+            "dataType": "int64",
+            "sourceColumn": "SafetyStockLevel"
+          },
+          {
+            "name": "ReorderPoint",
+            "dataType": "int64",
+            "sourceColumn": "ReorderPoint"
+          },
+          {
+            "name": "ListPrice",
+            "dataType": "decimal",
+            "sourceColumn": "ListPrice"
+          },
+          {
+            "name": "Size",
+            "dataType": "string",
+            "sourceColumn": "Size"
+          },
+          {
+            "name": "SizeRange",
+            "dataType": "string",
+            "sourceColumn": "SizeRange"
+          },
+          {
+            "name": "Weight",
+            "dataType": "double",
+            "sourceColumn": "Weight"
+          },
+          {
+            "name": "DaysToManufacture",
+            "dataType": "int64",
+            "sourceColumn": "DaysToManufacture"
+          },
+          {
+            "name": "ProductLine",
+            "dataType": "string",
+            "sourceColumn": "ProductLine"
+          },
+          {
+            "name": "DealerPrice",
+            "dataType": "decimal",
+            "sourceColumn": "DealerPrice"
+          },
+          {
+            "name": "Class",
+            "dataType": "string",
+            "sourceColumn": "Class"
+          },
+          {
+            "name": "Style",
+            "dataType": "string",
+            "sourceColumn": "Style"
+          },
+          {
+            "name": "ModelName",
+            "dataType": "string",
+            "sourceColumn": "ModelName"
+          },
+          {
+            "name": "EnglishDescription",
+            "dataType": "string",
+            "sourceColumn": "EnglishDescription"
+          },
+          {
+            "name": "FrenchDescription",
+            "dataType": "string",
+            "sourceColumn": "FrenchDescription"
+          },
+          {
+            "name": "ChineseDescription",
+            "dataType": "string",
+            "sourceColumn": "ChineseDescription"
+          },
+          {
+            "name": "ArabicDescription",
+            "dataType": "string",
+            "sourceColumn": "ArabicDescription"
+          },
+          {
+            "name": "HebrewDescription",
+            "dataType": "string",
+            "sourceColumn": "HebrewDescription"
+          },
+          {
+            "name": "ThaiDescription",
+            "dataType": "string",
+            "sourceColumn": "ThaiDescription"
+          },
+          {
+            "name": "GermanDescription",
+            "dataType": "string",
+            "sourceColumn": "GermanDescription"
+          },
+          {
+            "name": "JapaneseDescription",
+            "dataType": "string",
+            "sourceColumn": "JapaneseDescription"
+          },
+          {
+            "name": "TurkishDescription",
+            "dataType": "string",
+            "sourceColumn": "TurkishDescription"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "EndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "EndDate"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status"
+          },
+          {
+            "type": "calculated",
+            "name": "ProductSubCategory",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "RELATED(ProductSubcategory[EnglishProductSubcategoryName])"
+          },
+          {
+            "type": "calculated",
+            "name": "ProductCategory",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "RELATED(ProductCategory[EnglishProductCategoryName])"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                "    dbo_DimProduct = Source{[Schema=\"dbo\",Item=\"DimProduct\"]}[Data]",
+                "in",
+                "    dbo_DimProduct"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Product Hierarchy",
+            "levels": [
+              {
+                "name": "ProductCategory",
+                "ordinal": 0,
+                "column": "ProductCategory"
+              },
+              {
+                "name": "ProductSubCategory",
+                "ordinal": 1,
+                "column": "ProductSubCategory"
+              },
+              {
+                "name": "EnglishProductName",
+                "ordinal": 2,
+                "column": "EnglishProductName"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "SalesTerritory",
+        "columns": [
+          {
+            "name": "SalesTerritoryKey",
+            "dataType": "int64",
+            "sourceColumn": "SalesTerritoryKey"
+          },
+          {
+            "name": "SalesTerritoryAlternateKey",
+            "dataType": "int64",
+            "sourceColumn": "SalesTerritoryAlternateKey"
+          },
+          {
+            "name": "SalesTerritoryRegion",
+            "dataType": "string",
+            "sourceColumn": "SalesTerritoryRegion"
+          },
+          {
+            "name": "SalesTerritoryCountry",
+            "dataType": "string",
+            "sourceColumn": "SalesTerritoryCountry"
+          },
+          {
+            "name": "SalesTerritoryGroup",
+            "dataType": "string",
+            "sourceColumn": "SalesTerritoryGroup"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                "    dbo_DimSalesTerritory = Source{[Schema=\"dbo\",Item=\"DimSalesTerritory\"]}[Data]",
+                "in",
+                "    dbo_DimSalesTerritory"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProductSubcategory",
+        "columns": [
+          {
+            "name": "ProductSubcategoryKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductSubcategoryKey"
+          },
+          {
+            "name": "ProductSubcategoryAlternateKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductSubcategoryAlternateKey"
+          },
+          {
+            "name": "EnglishProductSubcategoryName",
+            "dataType": "string",
+            "sourceColumn": "EnglishProductSubcategoryName"
+          },
+          {
+            "name": "SpanishProductSubcategoryName",
+            "dataType": "string",
+            "sourceColumn": "SpanishProductSubcategoryName"
+          },
+          {
+            "name": "FrenchProductSubcategoryName",
+            "dataType": "string",
+            "sourceColumn": "FrenchProductSubcategoryName"
+          },
+          {
+            "name": "ProductCategoryKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductCategoryKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                "    dbo_DimProductSubcategory = Source{[Schema=\"dbo\",Item=\"DimProductSubcategory\"]}[Data]",
+                "in",
+                "    dbo_DimProductSubcategory"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProductCategory",
+        "columns": [
+          {
+            "name": "ProductCategoryKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductCategoryKey"
+          },
+          {
+            "name": "ProductCategoryAlternateKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductCategoryAlternateKey"
+          },
+          {
+            "name": "EnglishProductCategoryName",
+            "dataType": "string",
+            "sourceColumn": "EnglishProductCategoryName"
+          },
+          {
+            "name": "SpanishProductCategoryName",
+            "dataType": "string",
+            "sourceColumn": "SpanishProductCategoryName"
+          },
+          {
+            "name": "FrenchProductCategoryName",
+            "dataType": "string",
+            "sourceColumn": "FrenchProductCategoryName"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                "    dbo_DimProductCategory = Source{[Schema=\"dbo\",Item=\"DimProductCategory\"]}[Data]",
+                "in",
+                "    dbo_DimProductCategory"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Customer",
+        "columns": [
+          {
+            "name": "CustomerKey",
+            "dataType": "int64",
+            "sourceColumn": "CustomerKey"
+          },
+          {
+            "name": "GeographyKey",
+            "dataType": "int64",
+            "sourceColumn": "GeographyKey"
+          },
+          {
+            "name": "CustomerAlternateKey",
+            "dataType": "string",
+            "sourceColumn": "CustomerAlternateKey"
+          },
+          {
+            "name": "Title",
+            "dataType": "string",
+            "sourceColumn": "Title"
+          },
+          {
+            "name": "FirstName",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "FirstName"
+          },
+          {
+            "name": "MiddleName",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "MiddleName"
+          },
+          {
+            "name": "LastName",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "LastName"
+          },
+          {
+            "name": "NameStyle",
+            "dataType": "boolean",
+            "sourceColumn": "NameStyle"
+          },
+          {
+            "name": "BirthDate",
+            "dataType": "dateTime",
+            "sourceColumn": "BirthDate"
+          },
+          {
+            "name": "MaritalStatus",
+            "dataType": "string",
+            "sourceColumn": "MaritalStatus"
+          },
+          {
+            "name": "Suffix",
+            "dataType": "string",
+            "sourceColumn": "Suffix"
+          },
+          {
+            "name": "Gender",
+            "dataType": "string",
+            "sourceColumn": "Gender"
+          },
+          {
+            "name": "EmailAddress",
+            "dataType": "string",
+            "sourceColumn": "EmailAddress"
+          },
+          {
+            "name": "YearlyIncome",
+            "dataType": "decimal",
+            "sourceColumn": "YearlyIncome"
+          },
+          {
+            "name": "TotalChildren",
+            "dataType": "int64",
+            "sourceColumn": "TotalChildren"
+          },
+          {
+            "name": "NumberChildrenAtHome",
+            "dataType": "int64",
+            "sourceColumn": "NumberChildrenAtHome"
+          },
+          {
+            "name": "EnglishEducation",
+            "dataType": "string",
+            "sourceColumn": "EnglishEducation"
+          },
+          {
+            "name": "SpanishEducation",
+            "dataType": "string",
+            "sourceColumn": "SpanishEducation"
+          },
+          {
+            "name": "FrenchEducation",
+            "dataType": "string",
+            "sourceColumn": "FrenchEducation"
+          },
+          {
+            "name": "EnglishOccupation",
+            "dataType": "string",
+            "sourceColumn": "EnglishOccupation"
+          },
+          {
+            "name": "SpanishOccupation",
+            "dataType": "string",
+            "sourceColumn": "SpanishOccupation"
+          },
+          {
+            "name": "FrenchOccupation",
+            "dataType": "string",
+            "sourceColumn": "FrenchOccupation"
+          },
+          {
+            "name": "HouseOwnerFlag",
+            "dataType": "string",
+            "sourceColumn": "HouseOwnerFlag"
+          },
+          {
+            "name": "NumberCarsOwned",
+            "dataType": "int64",
+            "sourceColumn": "NumberCarsOwned"
+          },
+          {
+            "name": "AddressLine1",
+            "dataType": "string",
+            "sourceColumn": "AddressLine1"
+          },
+          {
+            "name": "AddressLine2",
+            "dataType": "string",
+            "sourceColumn": "AddressLine2"
+          },
+          {
+            "name": "Phone",
+            "dataType": "string",
+            "sourceColumn": "Phone"
+          },
+          {
+            "name": "DateFirstPurchase",
+            "dataType": "dateTime",
+            "sourceColumn": "DateFirstPurchase"
+          },
+          {
+            "name": "CommuteDistance",
+            "dataType": "string",
+            "sourceColumn": "CommuteDistance"
+          },
+          {
+            "type": "calculated",
+            "name": "Full Name",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "[FirstName]&\",\"&[LastName]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/HP_TC;AdventureWorksDW2014\",",
+                "    dbo_DimCustomer = Source{[Schema=\"dbo\",Item=\"DimCustomer\"]}[Data]",
+                "in",
+                "    dbo_DimCustomer"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "3ad01cd9-dcd7-4401-8b8d-9a90164a78dd",
+        "fromTable": "InternetSales",
+        "fromColumn": "DueDateKey",
+        "toTable": "Date",
+        "toColumn": "DateKey",
+        "isActive": false
+      },
+      {
+        "name": "e49baa3a-13df-4795-872c-002da317faf3",
+        "fromTable": "InternetSales",
+        "fromColumn": "ShipDateKey",
+        "toTable": "Date",
+        "toColumn": "DateKey",
+        "isActive": false
+      },
+      {
+        "name": "590e7a5d-c5c4-4095-bbb6-3846c85b1ebb",
+        "fromTable": "InternetSales",
+        "fromColumn": "OrderDateKey",
+        "toTable": "Date",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "bbdf7823-b9ab-4ba4-ac4b-67c02529c789",
+        "fromTable": "InternetSales",
+        "fromColumn": "ProductKey",
+        "toTable": "Product",
+        "toColumn": "ProductKey"
+      },
+      {
+        "name": "7c2c5bc6-a8a7-4690-a137-a5485358d246",
+        "fromTable": "InternetSales",
+        "fromColumn": "SalesTerritoryKey",
+        "toTable": "SalesTerritory",
+        "toColumn": "SalesTerritoryKey"
+      },
+      {
+        "name": "39731206-152c-4f95-a1a5-09718e04bdb1",
+        "fromTable": "InternetSales",
+        "fromColumn": "CustomerKey",
+        "toTable": "Customer",
+        "toColumn": "CustomerKey"
+      },
+      {
+        "name": "3d8ada9b-7bc4-46f0-a5cb-f1283a97bcf4",
+        "fromTable": "ProductSubcategory",
+        "fromColumn": "ProductCategoryKey",
+        "toTable": "ProductCategory",
+        "toColumn": "ProductCategoryKey"
+      },
+      {
+        "name": "3b5ab7ad-840f-40b5-8ef0-28fe521a1af8",
+        "fromTable": "Product",
+        "fromColumn": "ProductSubcategoryKey",
+        "toTable": "ProductSubcategory",
+        "toColumn": "ProductSubcategoryKey"
+      }
+    ],
+    "perspectives": [
+      {
+        "name": "SalesAmount",
+        "tables": [
+          {
+            "name": "Customer",
+            "columns": [
+              {
+                "name": "AddressLine1"
+              },
+              {
+                "name": "AddressLine2"
+              },
+              {
+                "name": "BirthDate"
+              },
+              {
+                "name": "CommuteDistance"
+              },
+              {
+                "name": "CustomerAlternateKey"
+              },
+              {
+                "name": "CustomerKey"
+              },
+              {
+                "name": "DateFirstPurchase"
+              },
+              {
+                "name": "EmailAddress"
+              },
+              {
+                "name": "EnglishEducation"
+              },
+              {
+                "name": "EnglishOccupation"
+              },
+              {
+                "name": "FirstName"
+              },
+              {
+                "name": "FrenchEducation"
+              },
+              {
+                "name": "FrenchOccupation"
+              },
+              {
+                "name": "Full Name"
+              },
+              {
+                "name": "Gender"
+              },
+              {
+                "name": "GeographyKey"
+              },
+              {
+                "name": "HouseOwnerFlag"
+              },
+              {
+                "name": "LastName"
+              },
+              {
+                "name": "MaritalStatus"
+              },
+              {
+                "name": "MiddleName"
+              },
+              {
+                "name": "NameStyle"
+              },
+              {
+                "name": "NumberCarsOwned"
+              },
+              {
+                "name": "NumberChildrenAtHome"
+              },
+              {
+                "name": "Phone"
+              },
+              {
+                "name": "SpanishEducation"
+              },
+              {
+                "name": "SpanishOccupation"
+              },
+              {
+                "name": "Suffix"
+              },
+              {
+                "name": "Title"
+              },
+              {
+                "name": "TotalChildren"
+              },
+              {
+                "name": "YearlyIncome"
+              }
+            ]
+          },
+          {
+            "name": "Date",
+            "columns": [
+              {
+                "name": "CalendarQuarter"
+              },
+              {
+                "name": "CalendarSemester"
+              },
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "DateKey"
+              },
+              {
+                "name": "DayNumberOfMonth"
+              },
+              {
+                "name": "DayNumberOfWeek"
+              },
+              {
+                "name": "DayNumberOfYear"
+              },
+              {
+                "name": "EnglishDayNameOfWeek"
+              },
+              {
+                "name": "EnglishMonthName"
+              },
+              {
+                "name": "FiscalQuarter"
+              },
+              {
+                "name": "FiscalSemester"
+              },
+              {
+                "name": "FiscalYear"
+              },
+              {
+                "name": "FrenchDayNameOfWeek"
+              },
+              {
+                "name": "FrenchMonthName"
+              },
+              {
+                "name": "FullDateAlternateKey"
+              },
+              {
+                "name": "MonthNumberOfYear"
+              },
+              {
+                "name": "SpanishDayNameOfWeek"
+              },
+              {
+                "name": "WeekNumberOfYear"
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "Calender Hierarchy"
+              }
+            ]
+          },
+          {
+            "name": "InternetSales",
+            "columns": [
+              {
+                "name": "ExtendedAmount"
+              },
+              {
+                "name": "ProductStandardCost"
+              },
+              {
+                "name": "SalesAmount"
+              },
+              {
+                "name": "TaxAmt"
+              },
+              {
+                "name": "TotalProductCost"
+              },
+              {
+                "name": "UnitPrice"
+              }
+            ],
+            "measures": [
+              {
+                "name": "InternetsalesAmountPY"
+              },
+              {
+                "name": "InternetsalesAmountTarget"
+              },
+              {
+                "name": "InternetSalesAmountYTD"
+              },
+              {
+                "name": "Internet SalesAmount"
+              }
+            ]
+          },
+          {
+            "name": "Product",
+            "columns": [
+              {
+                "name": "ArabicDescription"
+              },
+              {
+                "name": "ChineseDescription"
+              },
+              {
+                "name": "Class"
+              },
+              {
+                "name": "Color"
+              },
+              {
+                "name": "DaysToManufacture"
+              },
+              {
+                "name": "DealerPrice"
+              },
+              {
+                "name": "EndDate"
+              },
+              {
+                "name": "EnglishDescription"
+              },
+              {
+                "name": "EnglishProductName"
+              },
+              {
+                "name": "FinishedGoodsFlag"
+              },
+              {
+                "name": "FrenchDescription"
+              },
+              {
+                "name": "FrenchProductName"
+              },
+              {
+                "name": "GermanDescription"
+              },
+              {
+                "name": "HebrewDescription"
+              },
+              {
+                "name": "JapaneseDescription"
+              },
+              {
+                "name": "ListPrice"
+              },
+              {
+                "name": "ModelName"
+              },
+              {
+                "name": "ProductAlternateKey"
+              },
+              {
+                "name": "ProductCategory"
+              },
+              {
+                "name": "ProductKey"
+              },
+              {
+                "name": "ProductLine"
+              },
+              {
+                "name": "ProductSubCategory"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "ReorderPoint"
+              },
+              {
+                "name": "SafetyStockLevel"
+              },
+              {
+                "name": "Size"
+              },
+              {
+                "name": "SizeRange"
+              },
+              {
+                "name": "SizeUnitMeasureCode"
+              },
+              {
+                "name": "SpanishProductName"
+              },
+              {
+                "name": "StandardCost"
+              },
+              {
+                "name": "StartDate"
+              },
+              {
+                "name": "Status"
+              },
+              {
+                "name": "Style"
+              },
+              {
+                "name": "ThaiDescription"
+              },
+              {
+                "name": "TurkishDescription"
+              },
+              {
+                "name": "Weight"
+              },
+              {
+                "name": "WeightUnitMeasureCode"
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "Product Hierarchy"
+              }
+            ]
+          },
+          {
+            "name": "ProductCategory",
+            "columns": [
+              {
+                "name": "EnglishProductCategoryName"
+              },
+              {
+                "name": "FrenchProductCategoryName"
+              },
+              {
+                "name": "ProductCategoryAlternateKey"
+              },
+              {
+                "name": "ProductCategoryKey"
+              },
+              {
+                "name": "SpanishProductCategoryName"
+              }
+            ]
+          },
+          {
+            "name": "ProductSubcategory",
+            "columns": [
+              {
+                "name": "EnglishProductSubcategoryName"
+              },
+              {
+                "name": "FrenchProductSubcategoryName"
+              },
+              {
+                "name": "ProductCategoryKey"
+              },
+              {
+                "name": "ProductSubcategoryAlternateKey"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "SpanishProductSubcategoryName"
+              }
+            ]
+          },
+          {
+            "name": "SalesTerritory",
+            "columns": [
+              {
+                "name": "SalesTerritoryAlternateKey"
+              },
+              {
+                "name": "SalesTerritoryCountry"
+              },
+              {
+                "name": "SalesTerritoryGroup"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "SalesTerritoryRegion"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "SalesQty",
+        "tables": [
+          {
+            "name": "Customer",
+            "columns": [
+              {
+                "name": "AddressLine1"
+              },
+              {
+                "name": "AddressLine2"
+              },
+              {
+                "name": "BirthDate"
+              },
+              {
+                "name": "CommuteDistance"
+              },
+              {
+                "name": "CustomerAlternateKey"
+              },
+              {
+                "name": "CustomerKey"
+              },
+              {
+                "name": "DateFirstPurchase"
+              },
+              {
+                "name": "EmailAddress"
+              },
+              {
+                "name": "EnglishEducation"
+              },
+              {
+                "name": "EnglishOccupation"
+              },
+              {
+                "name": "FirstName"
+              },
+              {
+                "name": "FrenchEducation"
+              },
+              {
+                "name": "FrenchOccupation"
+              },
+              {
+                "name": "Full Name"
+              },
+              {
+                "name": "Gender"
+              },
+              {
+                "name": "GeographyKey"
+              },
+              {
+                "name": "HouseOwnerFlag"
+              },
+              {
+                "name": "LastName"
+              },
+              {
+                "name": "MaritalStatus"
+              },
+              {
+                "name": "MiddleName"
+              },
+              {
+                "name": "NameStyle"
+              },
+              {
+                "name": "NumberCarsOwned"
+              },
+              {
+                "name": "NumberChildrenAtHome"
+              },
+              {
+                "name": "Phone"
+              },
+              {
+                "name": "SpanishEducation"
+              },
+              {
+                "name": "SpanishOccupation"
+              },
+              {
+                "name": "Suffix"
+              },
+              {
+                "name": "Title"
+              },
+              {
+                "name": "TotalChildren"
+              },
+              {
+                "name": "YearlyIncome"
+              }
+            ]
+          },
+          {
+            "name": "Date",
+            "columns": [
+              {
+                "name": "CalendarQuarter"
+              },
+              {
+                "name": "CalendarSemester"
+              },
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "DateKey"
+              },
+              {
+                "name": "DayNumberOfMonth"
+              },
+              {
+                "name": "DayNumberOfWeek"
+              },
+              {
+                "name": "DayNumberOfYear"
+              },
+              {
+                "name": "EnglishDayNameOfWeek"
+              },
+              {
+                "name": "EnglishMonthName"
+              },
+              {
+                "name": "FiscalQuarter"
+              },
+              {
+                "name": "FiscalSemester"
+              },
+              {
+                "name": "FiscalYear"
+              },
+              {
+                "name": "FrenchDayNameOfWeek"
+              },
+              {
+                "name": "FrenchMonthName"
+              },
+              {
+                "name": "FullDateAlternateKey"
+              },
+              {
+                "name": "MonthNumberOfYear"
+              },
+              {
+                "name": "SpanishDayNameOfWeek"
+              },
+              {
+                "name": "WeekNumberOfYear"
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "Calender Hierarchy"
+              }
+            ]
+          },
+          {
+            "name": "InternetSales",
+            "columns": [
+              {
+                "name": "CustomerPONumber"
+              },
+              {
+                "name": "DueDate"
+              },
+              {
+                "name": "DueDateKey"
+              },
+              {
+                "name": "OrderQuantity"
+              },
+              {
+                "name": "PromotionKey"
+              }
+            ]
+          },
+          {
+            "name": "Product",
+            "columns": [
+              {
+                "name": "ArabicDescription"
+              },
+              {
+                "name": "ChineseDescription"
+              },
+              {
+                "name": "Class"
+              },
+              {
+                "name": "Color"
+              },
+              {
+                "name": "DaysToManufacture"
+              },
+              {
+                "name": "DealerPrice"
+              },
+              {
+                "name": "EndDate"
+              },
+              {
+                "name": "EnglishDescription"
+              },
+              {
+                "name": "EnglishProductName"
+              },
+              {
+                "name": "FinishedGoodsFlag"
+              },
+              {
+                "name": "FrenchDescription"
+              },
+              {
+                "name": "FrenchProductName"
+              },
+              {
+                "name": "GermanDescription"
+              },
+              {
+                "name": "HebrewDescription"
+              },
+              {
+                "name": "JapaneseDescription"
+              },
+              {
+                "name": "ListPrice"
+              },
+              {
+                "name": "ModelName"
+              },
+              {
+                "name": "ProductAlternateKey"
+              },
+              {
+                "name": "ProductCategory"
+              },
+              {
+                "name": "ProductKey"
+              },
+              {
+                "name": "ProductLine"
+              },
+              {
+                "name": "ProductSubCategory"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "ReorderPoint"
+              },
+              {
+                "name": "SafetyStockLevel"
+              },
+              {
+                "name": "Size"
+              },
+              {
+                "name": "SizeRange"
+              },
+              {
+                "name": "SizeUnitMeasureCode"
+              },
+              {
+                "name": "SpanishProductName"
+              },
+              {
+                "name": "StandardCost"
+              },
+              {
+                "name": "StartDate"
+              },
+              {
+                "name": "Status"
+              },
+              {
+                "name": "Style"
+              },
+              {
+                "name": "ThaiDescription"
+              },
+              {
+                "name": "TurkishDescription"
+              },
+              {
+                "name": "Weight"
+              },
+              {
+                "name": "WeightUnitMeasureCode"
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "Product Hierarchy"
+              }
+            ]
+          },
+          {
+            "name": "ProductCategory",
+            "columns": [
+              {
+                "name": "EnglishProductCategoryName"
+              },
+              {
+                "name": "FrenchProductCategoryName"
+              },
+              {
+                "name": "ProductCategoryAlternateKey"
+              },
+              {
+                "name": "ProductCategoryKey"
+              },
+              {
+                "name": "SpanishProductCategoryName"
+              }
+            ]
+          },
+          {
+            "name": "ProductSubcategory",
+            "columns": [
+              {
+                "name": "EnglishProductSubcategoryName"
+              },
+              {
+                "name": "FrenchProductSubcategoryName"
+              },
+              {
+                "name": "ProductCategoryKey"
+              },
+              {
+                "name": "ProductSubcategoryAlternateKey"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "SpanishProductSubcategoryName"
+              }
+            ]
+          },
+          {
+            "name": "SalesTerritory",
+            "columns": [
+              {
+                "name": "SalesTerritoryAlternateKey"
+              },
+              {
+                "name": "SalesTerritoryCountry"
+              },
+              {
+                "name": "SalesTerritoryGroup"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "SalesTerritoryRegion"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

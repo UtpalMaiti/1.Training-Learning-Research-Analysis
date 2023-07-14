@@ -1,0 +1,26 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="techcrome.database.windows.net.AZUREBI.techcrome"
+  DTS:DTSID="{4B26EC06-7DA4-4EDF-BA46-D95A8BFB197C}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::TechcromeDatabaseWindowsNetAZUREBITechcrome_ConnectionString]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::TechcromeDatabaseWindowsNetAZUREBITechcrome_InitialCatalog]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Name">@[$Project::TechcromeDatabaseWindowsNetAZUREBITechcrome_Name]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::TechcromeDatabaseWindowsNetAZUREBITechcrome_Password]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::TechcromeDatabaseWindowsNetAZUREBITechcrome_ServerName]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="UserName">@[$Project::TechcromeDatabaseWindowsNetAZUREBITechcrome_UserName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=techcrome.database.windows.net;User ID=techcrome;Initial Catalog=AZUREBI;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaWhwp51TSUW1wYFzMML/5AAAAAACAAAAAAAQZgAAAAEAACAAAADxUTzGlbfg6da79EYOr0UMcyltLiIvxxBrgHefjnVyeQAAAAAOgAAAAAIAACAAAAA0JUo2MeTysAc/Di2FUWxJXpdIvBdUnM3R4ecTPDW4x3AAAACZKbcemUeohghraAu1zpTj/6LS9obbCi+VrJ7VvnHnVAaUplNvHrN+00FVfoJGH9cBVbqWZFwgjUSCvR4eJqPjeVESTUM9su5Nza8VgniM546EZMXAcivw4iPxRsHBQeDsyr4yMHukAmyg9lTlhAcvQAAAAC2CPDG64U6V05x4hemDpCfcN0y5uPx8ktMEItwhuaZBarIJzjp0AenA0uG7RxPZS10/TvJeZ3L3zNMC+yJeA1U=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
