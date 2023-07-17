@@ -1,0 +1,305 @@
+﻿Country,Company,Month,Sale 2016
+United States,Contoso,December,42184.42
+India,Proseware,September,37923
+India,DogWings,January,34616.15
+India,SQL School,February,31770.26
+Germany,Contoso,July,28791.79
+United States,DogWings,July,27360.57
+India,DogWings,May,25598.4
+Germany,SQL School,March,22928.18
+Germany,Litware,November,22399.93
+United States,SQL School,April,22067.57
+India,Contoso,December,21968.86
+United States,Proseware,September,21903
+United States,DogWings,November,21826.8
+United States,SQL School,December,19734.89
+United States,Litware,November,19229.82
+Germany,Fabrikam,June,18966.8
+Germany,DogWings,December,18570.3
+United States,Contoso,October,18206.65
+United States,Contoso,April,17433.79
+Germany,Contoso,November,16987.67
+India,SQL School,September,16638.85
+United States,SQL School,March,16598.22
+India,SQL School,June,15790
+India,Fabrikam,December,15499.94
+United States,Contoso,August,15159.15
+India,SQL School,August,14035.71
+Germany,Contoso,September,13894.28
+United States,SequelGate,September,13894
+India,Vimeo,August,13740.38
+India,Contoso,April,13590.94
+Germany,Proseware,October,13568.78
+India,Proseware,December,12987
+United States,Fabrikam,June,12910.36
+Germany,Contoso,October,12675.45
+Germany,Contoso,March,12430.38
+India,SQL School,January,12418.26
+United States,Fabrikam,April,11882
+United States,Fabrikam,December,11872
+Germany,Contoso,May,11868.03
+India,SQL School,October,11864.76
+Germany,SequelGate,February,11790
+India,Contoso,May,11780.08
+United States,SQL School,February,11749.25
+India,Contoso,March,11364.07
+India,BarnesNobles,April,11182
+United States,SQL School,June,10757.16
+Germany,SequelGate,May,10520.5
+India,Vimeo,June,10280.89
+India,SQL School,July,9938.12
+United States,SQL School,July,9869.37
+United States,SQL School,May,9869.37
+Germany,Contoso,April,9626.06
+India,Fabrikam,November,9477.6
+India,Contoso,October,8785.89
+Germany,SequelGate,July,8778
+Germany,Litware,March,8742.72
+Germany,SQL School,February,8711.52
+India,Contoso,June,8562
+United States,Contoso,January,8506.88
+United States,SQL School,January,8459.46
+Germany,BarnesNobles,December,8349.89
+United States,Contoso,November,8218.2
+Germany,Contoso,January,8172.92
+India,DogWings,March,7999.5
+Germany,Contoso,August,7739.76
+United States,Fabrikam,October,7704
+India,Contoso,November,7631.64
+India,Litware,July,7579
+United States,Proseware,December,7528.88
+India,SequelGate,July,7424
+India,Contoso,February,7372.34
+United States,Contoso,May,7133.14
+India,Fabrikam,August,7113
+Germany,SequelGate,June,7056
+United States,Litware,May,7054.98
+India,Contoso,July,7001.78
+Germany,SequelGate,April,6835.5
+Germany,SQL School,September,6769.61
+United States,Contoso,March,6733.86
+United States,Mobile Phones,June,6686
+Germany,SQL School,April,6609.51
+Germany,Vimeo,April,6538.73
+United States,Vimeo,February,6502.75
+Germany,SequelGate,January,6270
+India,SequelGate,February,6270
+Germany,SQL School,January,6249.47
+India,SequelGate,May,6234
+United States,Contoso,September,6232.99
+United States,Vimeo,March,6143.27
+India,SequelGate,December,6135
+Germany,Fabrikam,July,6100
+India,Fabrikam,September,5901.93
+Germany,Fabrikam,September,5859
+India,Fabrikam,January,5794.38
+United States,SequelGate,February,5794
+Germany,SequelGate,October,5724
+Germany,Fabrikam,November,5660
+Germany,Proseware,May,5655.88
+United States,Contoso,February,5629.26
+Germany,SQL School,August,5579.48
+India,SequelGate,June,5571
+Germany,DogWings,February,5508.08
+Germany,Litware,April,5497.81
+United States,Contoso,June,5356.89
+Germany,Litware,January,5327.52
+Germany,Vimeo,October,5296.42
+Germany,Litware,December,5274.57
+India,BarnesNobles,November,5049.96
+Germany,SequelGate,March,5016
+United States,SequelGate,January,5016
+United States,Fabrikam,September,4930
+United States,SequelGate,November,4907.1
+United States,Vimeo,May,4897.73
+United States,BarnesNobles,March,4771
+United States,Contoso,July,4770.2
+United States,SQL School,November,4699.7
+Germany,Contoso,February,4672.77
+United States,SequelGate,July,4639
+Germany,Mobile Phones,October,4588
+India,BarnesNobles,August,4537
+India,Proseware,March,4489.89
+India,SequelGate,March,4352
+Germany,SQL School,July,4229.73
+India,Vimeo,July,4226.88
+United States,Litware,December,4199.85
+Germany,Mobile Phones,November,4166
+United States,Vimeo,August,4148.15
+United States,SequelGate,April,4100
+India,Mobile Phones,November,4046
+United States,Vimeo,December,4038.72
+India,Contoso,September,3958.7
+United States,Mobile Phones,May,3890
+India,SequelGate,April,3814
+Germany,SequelGate,September,3762
+United States,SequelGate,August,3762
+United States,SQL School,September,3759.76
+Germany,BarnesNobles,August,3689.9
+India,SQL School,March,3689.85
+Germany,Vimeo,September,3678.96
+India,Fabrikam,May,3657.95
+Germany,SQL School,November,3623.91
+Germany,Fabrikam,February,3573.93
+Germany,Contoso,December,3469.89
+India,Fabrikam,March,3415.96
+United States,Vimeo,January,3377.1
+United States,SequelGate,June,3335
+Germany,SQL School,May,3289.79
+United States,Vimeo,June,3276.68
+Germany,Vimeo,May,3242.61
+India,BarnesNobles,June,3238.8
+India,SequelGate,January,3234
+United States,Fabrikam,November,3038
+Germany,Fabrikam,March,3032
+Germany,SQL School,October,2943.85
+United States,Vimeo,April,2896.17
+Germany,SQL School,December,2879.12
+United States,Vimeo,July,2849.09
+India,Proseware,February,2847
+Germany,SequelGate,November,2838
+Germany,SequelGate,December,2829.2
+India,Fabrikam,June,2820
+India,SQL School,November,2819.82
+United States,BarnesNobles,May,2748
+Germany,Contoso,June,2743.85
+United States,SequelGate,March,2508
+United States,SequelGate,October,2503
+Germany,Proseware,September,2463
+Germany,Fabrikam,May,2447.92
+Germany,BarnesNobles,July,2429.1
+India,Mobile Phones,February,2408
+India,Fabrikam,October,2396.06
+Germany,Vimeo,August,2385.27
+India,Mobile Phones,October,2384
+Germany,SQL School,June,2349.85
+United States,Fabrikam,February,2310
+United States,BarnesNobles,February,2299
+Germany,Fabrikam,April,2279.97
+India,Vimeo,January,2255.94
+India,BarnesNobles,July,2199.5
+United States,BarnesNobles,September,2199.45
+Germany,Litware,May,2169.91
+Germany,Mobile Phones,September,2168
+United States,Vimeo,November,2047.39
+Germany,Vimeo,March,2003.88
+India,Mobile Phones,September,1980
+India,Mobile Phones,May,1960
+Germany,Children Toys,March,1917.82
+Germany,Vimeo,January,1894.62
+India,SequelGate,October,1881
+United States,SequelGate,May,1881
+Germany,SequelGate,August,1848
+United States,Proseware,June,1832
+United States,Litware,July,1829.89
+United States,Mobile Phones,April,1812
+United States,Proseware,August,1807
+Germany,Fabrikam,December,1799.94
+India,Vimeo,February,1775.85
+Germany,Mobile Phones,January,1650
+Germany,Vimeo,July,1553.7
+Germany,Vimeo,June,1443.93
+United States,Litware,August,1439.92
+United States,Litware,September,1439.92
+India,Vimeo,November,1439.64
+India,Proseware,August,1399.93
+United States,Vimeo,September,1395.9
+India,Mobile Phones,June,1340
+United States,BarnesNobles,July,1289.57
+India,Contoso,January,1271.55
+India,SequelGate,September,1254
+Germany,Vimeo,February,1220.1
+India,Litware,December,1199.96
+Germany,BarnesNobles,March,1198
+Germany,Litware,August,1184.94
+United States,Fabrikam,July,1169.91
+United States,Mobile Phones,September,1161
+Germany,Proseware,December,1089
+India,Vimeo,October,1084.1
+Germany,Children Toys,January,1076
+India,Vimeo,March,980.4
+United States,Proseware,March,980
+India,Proseware,June,952
+United States,SQL School,August,939.94
+United States,Children Toys,December,927.56
+Germany,BarnesNobles,May,899.7
+Germany,BarnesNobles,January,879.8
+United States,Proseware,April,872
+United States,Children Toys,October,834.91
+Germany,Proseware,June,815.92
+India,Vimeo,December,753.69
+Germany,Vimeo,December,741.69
+United States,Fabrikam,May,719.96
+India,Proseware,April,719
+Germany,Litware,October,699.93
+India,Mobile Phones,March,690
+United States,Proseware,November,645
+Germany,Children Toys,October,638.4
+India,Vimeo,September,632.79
+United States,SequelGate,December,627
+India,Contoso,August,605.89
+India,Litware,April,599.9
+Germany,BarnesNobles,October,594
+United States,Children Toys,January,519.87
+United States,Mobile Phones,January,510
+India,SQL School,April,499.9
+United States,Proseware,October,489
+United States,BarnesNobles,October,471.8
+Germany,Mobile Phones,March,460
+India,BarnesNobles,February,459.8
+United States,Children Toys,September,430
+Germany,Litware,February,369.95
+Germany,Litware,July,359.98
+United States,Children Toys,August,359.57
+United States,BarnesNobles,August,319.8
+United States,Vimeo,October,318.9
+India,Children Toys,March,310
+Germany,DogWings,April,308.28
+Germany,Children Toys,December,301
+Germany,Proseware,April,299
+United States,Children Toys,May,297.21
+India,Children Toys,August,272.89
+United States,Children Toys,June,267
+Germany,Vimeo,November,262.6
+United States,Children Toys,July,258
+India,Children Toys,December,225.23
+India,Children Toys,September,219.57
+India,Children Toys,May,214
+Germany,DogWings,March,205.52
+United States,DogWings,October,205.52
+Germany,Children Toys,September,192
+United States,Litware,March,180
+Germany,DogWings,May,154.14
+India,DogWings,August,154.14
+United States,DogWings,March,154.14
+India,Children Toys,November,140
+United States,Proseware,May,136
+Germany,Fabrikam,August,129.99
+United States,DogWings,April,128.45
+United States,DogWings,June,128.45
+India,Children Toys,April,104.85
+United States,DogWings,December,102.76
+United States,DogWings,January,102.76
+United States,DogWings,September,102.76
+Germany,Fabrikam,October,99.99
+Germany,Children Toys,April,96
+Germany,Children Toys,August,90.87
+India,Children Toys,July,86
+United States,Children Toys,November,86
+Germany,Children Toys,February,84
+Germany,Proseware,March,79.95
+Germany,Proseware,February,79
+Germany,DogWings,January,77.07
+Germany,DogWings,September,77.07
+United States,DogWings,February,77.07
+India,Vimeo,April,75.99
+India,Children Toys,February,71.92
+India,Children Toys,June,62.93
+India,BarnesNobles,September,59.98
+India,DogWings,December,51.38
+India,DogWings,February,51.38
+India,DogWings,July,51.38
+India,Vimeo,May,41.73
+Germany,DogWings,June,25.69
+India,DogWings,September,25.69
+India,Litware,March,4.99
