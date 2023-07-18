@@ -9,6 +9,11 @@
 1. Entity-Framework-in-Depth-The-Complete-Guide-
 2. Competitive Programming
 
+# Pluralsight
+1. Building a Web App with ASP.NET Core 5, MVC, Entity Framework Core, Bootstrap, and Angular by Shawn Wildermuth
+    1. https://github.com/UtpalMaiti/Building-a-Web-App-with-ASP.NET-Core-5-MVC-Entity-Framework-Core-Bootstrap-and-Angular
+    2. https://drive.google.com/drive/folders/1D_g2w9FxzG97TANJzdHqOvyNXIOUx2EA
+
 # Azure
 
 1. microsoft-azure-blob-storage-implementing
