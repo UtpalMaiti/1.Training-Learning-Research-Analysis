@@ -14,6 +14,10 @@
     1. https://github.com/UtpalMaiti/Building-a-Web-App-with-ASP.NET-Core-5-MVC-Entity-Framework-Core-Bootstrap-and-Angular
     2. https://drive.google.com/drive/folders/1D_g2w9FxzG97TANJzdHqOvyNXIOUx2EA
 
+2. React 17 : Getting Started
+    1. React Sample rgs-star-match
+
+
 # Azure
 
 1. microsoft-azure-blob-storage-implementing
