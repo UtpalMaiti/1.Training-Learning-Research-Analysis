@@ -54,7 +54,7 @@ https://github.com/UtpalMaiti/SampleProjects
 
 # DevOps and Cloud Technologies
 1. https://github.com/gkdevops/gkdevops
-
+2. https://drive.google.com/drive/folders/1-1Zpq0AcT06MOgYEJDFUI6bxf4rbqycX
 
 1. https://dotnettutorials.net/course/csharp-dot-net-tutorials/
 2. https://github.com/orgs/LinkedInLearning/repositories
