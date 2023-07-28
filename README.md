@@ -27,6 +27,9 @@
         https://github.com/UtpalMaiti/AspNetCorePostgreSQLDockerApp
         https://www.codewithdan.com
 
+3. EF Core 6 Fundamentals by Julie Lerman
+    [PluralsightEFCore6Fundamentals](https://github.com/julielerman/PluralsightEFCore6Fundamentals)
+
 
 # Azure
 
