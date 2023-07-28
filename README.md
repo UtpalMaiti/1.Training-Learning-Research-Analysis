@@ -25,6 +25,7 @@
         https://github.com/DanWahlin/CodeWithDanDockerServices
         https://github.com/DanWahlin/React-Core-Concepts
         https://github.com/UtpalMaiti/AspNetCorePostgreSQLDockerApp
+        https://www.codewithdan.com
 
 
 # Azure
