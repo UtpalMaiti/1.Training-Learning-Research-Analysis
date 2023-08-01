@@ -28,7 +28,7 @@
    8. https://www.codewithdan.com
 
 3. EF Core 6 Fundamentals by Julie Lerman
-    [PluralsightEFCore6Fundamentals](https://github.com/julielerman/PluralsightEFCore6Fundamentals)
+    1. [PluralsightEFCore6Fundamentals](https://github.com/julielerman/PluralsightEFCore6Fundamentals)
 
 4. What Is React? by Peter Kellner
     1. https://github.com/pkellner/pluralsight-what-is-react/pulse
