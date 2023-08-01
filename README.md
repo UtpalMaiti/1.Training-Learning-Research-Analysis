@@ -18,21 +18,21 @@
     1. React Sample rgs-star-match
 
 3. Building and Running Custom ASP.NET Core Containers by Dan Wahlin
-        https://github.com/DanWahlin/AspNetCorePostgreSQLDockerApp
-        https://github.com/DanWahlin/Angular-Docker-Microservices
-        https://github.com/DanWahlin/Angular-NodeJS-MongoDB-CustomersService
-        https://github.com/DanWahlin/Anqular-RESTfulService
-        https://github.com/DanWahlin/CodeWithDanDockerServices
-        https://github.com/DanWahlin/React-Core-Concepts
-        https://github.com/UtpalMaiti/AspNetCorePostgreSQLDockerApp
-        https://www.codewithdan.com
+   1. https://github.com/DanWahlin/AspNetCorePostgreSQLDockerApp
+   2. https://github.com/DanWahlin/Angular-Docker-Microservices
+   3. https://github.com/DanWahlin/Angular-NodeJS-MongoDB-CustomersService
+   4.  https://github.com/DanWahlin/Anqular-RESTfulService
+   5. https://github.com/DanWahlin/CodeWithDanDockerServices
+   6. https://github.com/DanWahlin/React-Core-Concepts
+   7. https://github.com/UtpalMaiti/AspNetCorePostgreSQLDockerApp
+   8. https://www.codewithdan.com
 
 3. EF Core 6 Fundamentals by Julie Lerman
     [PluralsightEFCore6Fundamentals](https://github.com/julielerman/PluralsightEFCore6Fundamentals)
 
 4. What Is React? by Peter Kellner
-   https://github.com/pkellner/pluralsight-what-is-react/pulse
-   https://peterkellner.net/
+    1. https://github.com/pkellner/pluralsight-what-is-react/pulse
+    2. https://peterkellner.net/
 
 
 # Azure
