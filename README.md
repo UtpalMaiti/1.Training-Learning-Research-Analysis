@@ -37,7 +37,11 @@
   
 5. React 18- The Big Picture by Cory House
     1. http://www.bitnative.com/
-    2. https://github.com/coryhouse/pluralsight-reusable-react-components/tree/master
+    2. https://github.com/coryhouse/pluralsight-reusable-react-components
+  
+6. React 18 Fundamentals by Roland Guijt
+    1. http://www.rmgsolutions.nl/
+    2. [https://github.com/coryhouse/pluralsight-reusable-react-components](https://github.com/RolandGuijt/ps-react-fundamentals)
 
 
 # Azure
