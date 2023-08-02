@@ -42,6 +42,7 @@
 6. React 18 Fundamentals by Roland Guijt
     1. http://www.rmgsolutions.nl/
     2. [https://github.com/coryhouse/pluralsight-reusable-react-components](https://github.com/RolandGuijt/ps-react-fundamentals)
+    3. https://github.com/RolandGuijt/ps-globomantics-react-ts.git
 
 
 # Azure
