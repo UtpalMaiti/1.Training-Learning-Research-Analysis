@@ -34,6 +34,10 @@
 4. What Is React? by Peter Kellner
     1. https://github.com/pkellner/pluralsight-what-is-react/pulse
     2. https://peterkellner.net/
+  
+5. React 18- The Big Picture by Cory House
+    1. http://www.bitnative.com/
+    2. https://github.com/coryhouse/pluralsight-reusable-react-components/tree/master
 
 
 # Azure
