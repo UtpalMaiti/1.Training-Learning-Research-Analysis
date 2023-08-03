@@ -43,6 +43,10 @@
     1. http://www.rmgsolutions.nl/
     2. [https://github.com/coryhouse/pluralsight-reusable-react-components](https://github.com/RolandGuijt/ps-react-fundamentals)
     3. https://github.com/RolandGuijt/ps-globomantics-react-ts.git
+  
+7. Working with Components in React 18 by Peter Kellner
+    1. https://github.com/pkellner/pluralsight-working-with-components-in-react18/
+   
 
 
 # Azure
