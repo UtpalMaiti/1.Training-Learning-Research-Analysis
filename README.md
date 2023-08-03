@@ -46,6 +46,9 @@
   
 7. Working with Components in React 18 by Peter Kellner
     1. https://github.com/pkellner/pluralsight-working-with-components-in-react18/
+
+8. Using Hooks in React 18 by Peter Kellner
+    1. https://github.com/pkellner/pluralsight-using-hooks-in-react18/
    
 
 
