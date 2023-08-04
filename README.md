@@ -22,7 +22,7 @@
    1. https://github.com/DanWahlin/AspNetCorePostgreSQLDockerApp
    2. https://github.com/DanWahlin/Angular-Docker-Microservices
    3. https://github.com/DanWahlin/Angular-NodeJS-MongoDB-CustomersService
-   4.  https://github.com/DanWahlin/Anqular-RESTfulService
+   4. https://github.com/DanWahlin/Anqular-RESTfulService
    5. https://github.com/DanWahlin/CodeWithDanDockerServices
    6. https://github.com/DanWahlin/React-Core-Concepts
    7. https://github.com/UtpalMaiti/AspNetCorePostgreSQLDockerApp
@@ -49,6 +49,9 @@
 
 8. Using Hooks in React 18 by Peter Kellner
     1. https://github.com/pkellner/pluralsight-using-hooks-in-react18/
+       
+9. Server Component Fundamentals in React 18 by Peter Kellner
+    1. https://github.com/pkellner/pluralsight-react-server-component-fundamentals
    
 
 
