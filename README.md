@@ -52,6 +52,9 @@
        
 9. Server Component Fundamentals in React 18 by Peter Kellner
     1. https://github.com/pkellner/pluralsight-react-server-component-fundamentals
+ 
+10. Styling Apps in React 18 by Jake Trent
+    1. https://github.com/jaketrent/styling-react-components
    
 
 
