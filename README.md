@@ -56,8 +56,12 @@
 10. Styling Apps in React 18 by Jake Trent
     1. https://github.com/jaketrent/styling-react-components
    
-10. Testing in React 18 by Liam McLennan
+11. Testing in React 18 by Liam McLennan
     1. https://github.com/UtpalMaiti/Testing-in-React-18-by-Liam-McLennan
+   
+12. React 18 with Next.js Playbook by Jim Cooper
+    1. https://github.com/jim-cooper
+    2. https://github.com/UtpalMaiti/react-18-nextjs-playbook
    
 
 
