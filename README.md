@@ -62,6 +62,12 @@
 12. React 18 with Next.js Playbook by Jim Cooper
     1. https://github.com/jim-cooper
     2. https://github.com/UtpalMaiti/react-18-nextjs-playbook
+
+13. React 18 with Create-React-App Playbook by Zachary Bennett
+    1. https://github.com/UtpalMaiti/React-18-with-Create-React-App-Playbook
+   
+14. React 18 Debugging Playbook by Kamran Ayub
+    1. https://github.com/UtpalMaiti/pluralsight-course-react-debugging
    
 
 
