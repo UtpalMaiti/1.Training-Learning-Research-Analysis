@@ -1,4 +1,5 @@
 1. LinkedIn Learning
+Explore Web Development with Angular
 Angular Essential Training By: Justin Schwartzenberger
 
 
