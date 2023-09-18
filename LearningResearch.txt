@@ -1,6 +1,9 @@
 1. LinkedIn Learning
 Explore Web Development with Angular
-Angular Essential Training By: Justin Schwartzenberger
+    Angular Essential Training By: Justin Schwartzenberger
+    
+blazor-webassembly-foundational-skills
+   https://github.com/LinkedInLearning/blazor-webassembly-foundational-skills-2505782
 
 
 
