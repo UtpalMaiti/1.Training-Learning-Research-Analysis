@@ -8,6 +8,8 @@ Angular Essential Training By: Justin Schwartzenberger
 
 # 2. Pluralsight
 
+1.  Shell Scripting with Bash and Z Shell
+
 # 3. Udemy
 
 1. .NET Training - ASP.NET MVC with Angular 2.x, 14.x, Entity framework, WEBAPI & .NET core, AngularJS 1.x
