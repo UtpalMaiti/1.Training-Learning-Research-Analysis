@@ -15,6 +15,7 @@ Angular Essential Training By: Justin Schwartzenberger
 3. Complete-jQuery
 4. Power Business Intelligence - Training
 5. Microsoft Business Intelligence – MSBI
+6. [bSQL-DBA-DEVELOPER](https://github.com/UtpalMaiti/SQL-DBA-DEVELOPER)
 
 # ALL-MIX
 
