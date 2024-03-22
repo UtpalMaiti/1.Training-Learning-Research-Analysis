@@ -1,5 +1,6 @@
 using _99.CoreBasics.Models;
 
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
 using System.Diagnostics;
@@ -54,6 +55,12 @@ namespace _99.CoreBasics.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
+            var i = HttpContext;
+            var j = Activity.Current;
+
+            var exHandlerFeature = HttpContext.Features.Get<IExceptionHandlerFeature>();
+            var exception = exHandlerFeature.Error;
+
             _logger.LogInformation(JsonSerializer.Serialize(Activity.Current));
             //_logger.LogInformation(JsonSerializer.Serialize(HttpContext.Request.Form));
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

@@ -1,4 +1,7 @@
-﻿using System.Net;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+
+using System.Net;
 using System.Text.Json;
 
 namespace _99.CoreBasics.Utility
@@ -23,13 +26,14 @@ namespace _99.CoreBasics.Utility
             catch (Exception ex)
             {
                 //_logger.LogError($"Something went wrong: {ex}");
-                _logger.LogError(JsonSerializer.Serialize(ex));
+                _logger.LogError(ex.ToString());
                 if(ex.InnerException != null)
                 {
-                    _logger.LogError(JsonSerializer.Serialize(ex.InnerException));
+                    _logger.LogError(ex.InnerException.ToString());
 
                 }
                 //await HandleExceptionAsync(httpContext, ex);
+                await _next(httpContext);
             }
         }
 
@@ -43,6 +47,8 @@ namespace _99.CoreBasics.Utility
             //    StatusCode = context.Response.StatusCode,
             //    Message = "Internal Server Error from the custom middleware."
             //}.ToString());
+
+            await _next(context);
         }
     }
 }

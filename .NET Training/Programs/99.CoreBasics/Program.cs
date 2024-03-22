@@ -4,6 +4,8 @@ using _99.CoreBasics.Utility;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
+using System.Collections.Generic;
+
 namespace _99.CoreBasics
 {
     public class Program
@@ -12,7 +14,15 @@ namespace _99.CoreBasics
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Logging.AddFile("Logs/myapp-{Date}.txt");
+            var levelOverride = new Dictionary<string, LogLevel>();
+            //levelOverride.Add("Default", LogLevel.Information);
+            //levelOverride.Add("Microsoft.AspNetCore", LogLevel.Debug);
+            //levelOverride.Add("Microsoft", LogLevel.Warning);
+
+                 builder.Logging.AddFile("Logs/myapp-{Date}.txt",
+                LogLevel.Trace,
+                levelOverride,false,null,null, 
+                "{Timestamp:o} {RequestId,13} [{Level:u3}] {Message} ({EventId:x8}){NewLine}{Exception}");
 
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
@@ -30,17 +40,19 @@ namespace _99.CoreBasics
 
             app.UseMiddleware<ExceptionMiddleware>();
 
+            app.UseExceptionHandler("/Home/Error");
+
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseMigrationsEndPoint();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+            //if (app.Environment.IsDevelopment())
+            //{
+            //    app.UseMigrationsEndPoint();
+            //}
+            //else
+            //{
+            //    app.UseExceptionHandler("/Home/Error");
+            //    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            //    app.UseHsts();
+            //}
 
             //app.UseHttpsRedirection();
             app.UseStaticFiles();
