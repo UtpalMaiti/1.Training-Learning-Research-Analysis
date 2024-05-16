@@ -1,6 +1,7 @@
 # 1.Training-Learning-Research-Analysis
 
 # 1. LinkedIn Learning
+   1. https://github.com/LinkedInLearning
 
 Explore Web Development with Angular
 Angular Essential Training By: Justin Schwartzenberger
